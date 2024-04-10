@@ -27,53 +27,8 @@
         "GS1:country": "Denmark"
       },
       "previousCredential": {
-        "@context": [
-          "https://www.w3.org/2018/credentials/v1",
-          "https://github.com/example_future_context_repo",
-          "https://gs1.org/voc/"
-        ],
-        "id": "https://example.edu/credentials/1873",
-        "type": [
-          "VerifiableCredential",
-          "BCVerifiableSupplyChainCredential",
-          "AssetDataStandard"
-        ],
-        "issuer": {
-          "id": "did:example:76e12ec712ebc6f1c221edsfdfsd",
-          "name": "Wood Supplier Incorporated"
-        },
-        "holder": {
-          "id": "did:example:76e12ec712ebc6f1c221edsfdfsd",
-          "name": "Wood Supplier Incorporated"
-        },
-        "issuanceDate": "2000-01-01T00:00:00Z",
-        "credentialSubject": {
-          "blockchainSupplyChainData": {
-            "id": "did:example:12346",
-            "assetData": {
-              "GS1:functionalName": "Wood",
-              "GS1:country": "England"
-            },
-            "previousCredential": null,
-            "componentCredentials": []
-          }
-        },
-        "proofs": {
-          "issuerProof": {
-            "type": "RsaSignature2018",
-            "created": "2000-01-01T00:00:00Z",
-            "proofPurpose": "assertionMethod",
-            "verificationMethod": "https://example.edu/issuers/565041#key-2",
-            "jws": "example_jws_2"
-          },
-          "holderProof": {
-            "type": "RsaSignature2018",
-            "created": "2000-01-01T00:00:00Z",
-            "proofPurpose": "assertionMethod",
-            "verificationMethod": "https://example.edu/issuers/565041#key-2",
-            "jws": "example_jws_2"
-          }
-        }
+        "name" : "wood-provider-vssc.json",
+        "cid" : "QmSRm4XpecGhN5dcTmVhzwwqGx7VaZqL5zL4rvqgW4yqhV"
       },
       "componentCredentials": []
     }
