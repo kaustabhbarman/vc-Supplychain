@@ -1,14 +1,11 @@
 {
   "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://github.com/example_future_context_repo",
-    "https://gs1.org/voc/"
+    "https://www.w3.org/2018/credentials/v1"
   ],
   "id": "https://example.edu/credentials/1874",
   "type": [
     "VerifiableCredential",
-    "BCVerifiableSupplyChainCredential",
-    "AssetDataStandard"
+    "BCVerifiableSupplyChainCredential"
   ],
   "issuer": {
     "id": "did:example:76e12ec712ebc6f1c221ebfeb1f",
@@ -20,18 +17,18 @@
   },
   "issuanceDate": "2000-01-02T00:00:00Z",
   "credentialSubject": {
-    "blockchainSupplyChainData": {
-      "id": "did:example:12345",
-      "assetData": {
-        "GS1:functionalName": "Sand",
-        "GS1:country": "Denmark"
-      },
-      "previousCredential": {
-        "name" : "sand-provider-vssc.json",
-        "cid" : "Qmf5QSN5wyUUUipneJ9VMt7TWkczL8Z2YxxEMNrqC7wRY6"
-      },
-      "componentCredentials": []
-    }
+    "id": "did:example:12345",
+    "subjectDetails": {
+        "product": "Sand",
+        "batchNumber": "ABCDE",
+        "quantity": "3000 kg"
+    },
+    "previousCredential": {
+      "name" : "sand-provider-vssc.json",
+      "cid" : "Qmf5QSN5wyUUUipneJ9VMt7TWkczL8Z2YxxEMNrqC7wRY6"
+    },
+    "componentCredentials": [],
+    "transactionId": "0x123456789abcdef"
   },
   "proofs": {
     "issuerProof": {

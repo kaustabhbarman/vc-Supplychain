@@ -1,14 +1,11 @@
 {
     "@context": [
-        "https://www.w3.org/2018/credentials/v1",
-        "https://github.com/example_future_context_repo",
-        "https://gs1.org/voc/"
+        "https://www.w3.org/2018/credentials/v1"
     ],
     "id": "https://example.edu/credentials/1873",
     "type": [
         "VerifiableCredential",
-        "BCVerifiableSupplyChainCredential",
-        "AssetDataStandard"
+        "BCVerifiableSupplyChainCredential"
     ],
     "issuer": {
       "id": "did:example:76e12ec712ebc6f1c221edsfdfsd",
@@ -20,15 +17,15 @@
     },
     "issuanceDate": "2000-01-01T00:00:00Z",
     "credentialSubject": {
-        "blockchainSupplyChainData": {
-            "id": "did:example:12346",
-            "assetData": {
-                "GS1:functionalName": "Wood",
-                "GS1:country": "England"
-            },
-            "previousCredential": null,
-            "componentCredentials": []
-        }
+        "id": "did:example:12345",
+        "subjectDetails": {
+            "product": "Wood",
+            "batchNumber": "ABCDE",
+            "quantity": "3000 kg"
+        },
+        "previousCredential": null,
+        "componentCredentials": [],
+        "transactionId": ""
     },
 
     "proofs": {
