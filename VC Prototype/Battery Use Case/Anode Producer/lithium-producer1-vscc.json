@@ -1,50 +1,49 @@
 {
-    "@context": [
-        "https://www.w3.org/2018/credentials/v1"
-    ],
-    "id": "https://example.edu/credentials/1872",
-    "type": [
-        "VerifiableCredential",
-        "BCVerifiableSupplyChainCredential"
-    ],
-    "issuer": {
-      "id": "did:example:76e12ec712ebc6f1c221ebfeb1f",
-      "name": "Lithium Miner Incorporated"
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1"
+  ],
+  "id": "https://example.edu/credentials/1872",
+  "type": [
+    "VerifiableCredential",
+    "BCVerifiableSupplyChainCredential"
+  ],
+  "issuer": {
+    "id": "did:ethr:0x6cc2CE783315747c372d2d90cAf74aB2b0cF7890",
+    "name": "Lithium Miner Incorporated"
+  },
+  "holder": {
+    "id": "did:ethr:0xB585D8250298702258FEa501aD58DbE4eBBd743a",
+    "name": "Anode Producer Incorporated"
+  },
+  "issuanceDate": "2000-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:example:12345",
+    "subjectDetails": {
+      "product": "Lithium",
+      "batchNumber": "ABCDE",
+      "quantity": "3000 kg"
     },
-    "holder": {
-      "id": "did:example:76e12ec712ebc6f1c221ebfeb1g",
-      "name": "Anode Producer Incorporated"
+    "previousCredential": {
+      "name": "lithium-miner-vssc.json",
+      "cid": "QmNTqW455NvKcogsZ32uzhe1G1HJYaFbnyAcB6MXUz4pNs"
     },
-    "issuanceDate": "2000-01-01T00:00:00Z",
-    "credentialSubject": {
-        "id": "did:example:12345",
-        "subjectDetails": {
-            "product": "Lithium",
-            "batchNumber": "ABCDE",
-            "quantity": "3000 kg"
-        },
-        "previousCredential": {
-            "name" : "lithium-miner-vssc.json",
-            "cid" : "examplecid"
-          },
-        "componentCredentials": [],
-        "transactionId": "0x123456789abcdef"
+    "componentCredentials": [],
+    "transactionId": "0x123456789abcdef"
+  },
+  "proofs": {
+    "issuerProof": {
+      "type": "RsaSignature2018",
+      "created": "2024-07-26T10:25:48.055Z",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtploHKAVNJcCxKlRjU8+0lTspY2fGiGjpJcbS4KcZMvAfsOsfWf8Cc79ibMxuSVvRwh0deMfJEyz0W3Q9ClYsVK0RkFox0I8qOF5gemse9eP81839kFmB+TQG+eTk4ZSdtvVKihDNo93EUR2BbKRnHku9lkHVu/WSeHxaBuFOs0tVoMwgL1DVHv1eMlutnX9brTNYc7992oE20ya0v2I5x+9E+dxNvIMMk5aai3yOFp4QniLwpYkYqFWLKXb503qjcZx3aArn9w0tYNF7ktDJYSqEq6NmmR3Np5BFSkfSjfQegTF/bC5zkOg5g9s9GS4GRc/QWX1+UA3I34s7CR5rQIDAQAB",
+      "jws": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoie1wiQGNvbnRleHRcIjpbXCJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MVwiXSxcImlkXCI6XCJodHRwczovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzE4NzJcIixcInR5cGVcIjpbXCJWZXJpZmlhYmxlQ3JlZGVudGlhbFwiLFwiQkNWZXJpZmlhYmxlU3VwcGx5Q2hhaW5DcmVkZW50aWFsXCJdLFwiaXNzdWVyXCI6e1wiaWRcIjpcImRpZDpldGhyOjB4NmNjMkNFNzgzMzE1NzQ3YzM3MmQyZDkwY0FmNzRhQjJiMGNGNzg5MFwiLFwibmFtZVwiOlwiTGl0aGl1bSBNaW5lciBJbmNvcnBvcmF0ZWRcIn0sXCJob2xkZXJcIjp7XCJpZFwiOlwiZGlkOmV0aHI6MHhCNTg1RDgyNTAyOTg3MDIyNThGRWE1MDFhRDU4RGJFNGVCQmQ3NDNhXCIsXCJuYW1lXCI6XCJBbm9kZSBQcm9kdWNlciBJbmNvcnBvcmF0ZWRcIn0sXCJpc3N1YW5jZURhdGVcIjpcIjIwMDAtMDEtMDFUMDA6MDA6MDBaXCIsXCJjcmVkZW50aWFsU3ViamVjdFwiOntcImlkXCI6XCJkaWQ6ZXhhbXBsZToxMjM0NVwiLFwic3ViamVjdERldGFpbHNcIjp7XCJwcm9kdWN0XCI6XCJMaXRoaXVtXCIsXCJiYXRjaE51bWJlclwiOlwiQUJDREVcIixcInF1YW50aXR5XCI6XCIzMDAwIGtnXCJ9LFwicHJldmlvdXNDcmVkZW50aWFsXCI6e1wibmFtZVwiOlwibGl0aGl1bS1taW5lci12c3NjLmpzb25cIixcImNpZFwiOlwiUW1OVHFXNDU1TnZLY29nc1ozMnV6aGUxRzFISllhRmJueUFjQjZNWFV6NHBOc1wifSxcImNvbXBvbmVudENyZWRlbnRpYWxzXCI6W10sXCJ0cmFuc2FjdGlvbklkXCI6XCIweDEyMzQ1Njc4OWFiY2RlZlwifX0ifQ.Ne0zC3KX2OL4tMoprvTcA2liZyHph4NJDoc3iwj_mFgPjRkM8cLjCnUvx0mz5sJl00ktInMpGoYZ85WqkeDbBzNi1slClk8H6HwZQnhVIa3H_GH6SlU72ICAayWjr4G47WLQkyusauej8Wt9Ki0SuM8qLhSzMGhjtabs9QXP6mse0yUBaLDY3f6e7RQEuTIPHzoC5Km-8EbQxunzMQOq--lmkX7C9E2YUlIjEe1m65CXOuNMHRdlAQLMZfh86ryjfDUpzj8lCf55wSDEpCE50w_-VAESJovxZsvZBlJxh5jqTrh-O-vyqruztTBJhXp9kYckwXLhQ7bhXBr0dkBCLg"
     },
-
-    "proofs": {
-        "issuerProof": {
-            "type": "RsaSignature2018",
-            "created": "2000-01-01T00:00:00Z",
-            "proofPurpose": "assertionMethod",
-            "verificationMethod": "https://example.edu/issuers/565049#key-1",
-            "jws": "example_jws_1"
-        },
-        "holderProof": {
-            "type": "RsaSignature2018",
-            "created": "2000-01-01T00:00:00Z",
-            "proofPurpose": "assertionMethod",
-            "verificationMethod": "https://example.edu/issuers/565049#key-2",
-            "jws": "example_jws_2"
-        }
+    "holderProof": {
+      "type": "RsaSignature2018",
+      "created": "2024-07-26T10:26:14.532Z",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo/U4gA9AvidJhJqhSKArXvhCEbpll6zpYujDT0l9U01HOyKAbjEJ0ybpV6R4nS/DMuX7YcF1Zr2vWvb0Aezkx2R6xtb3hA3MbKBS8QELRqh13HkCii/Px+zP012avBydMk7x4XupS0XBxII63AaE9dS/BAYsfNf05nNZn1p2VBdhG8zcR/lWt3u0avB8pKLVUYfswXDcAF/pyG+YL2LqRws8jd7sDw5kYvgK8jXzv1/ItzRm1cHRr3D9hoLH1RpBQ2sUV9eiHlNpjFNGxtHdLZzr4vrQ00lBC43ieqKGJOb8cXRgq15u5YFNHpTxg77kqhfx3PaYAwMLTLcgZfz8/wIDAQAB",
+      "jws": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoie1wiQGNvbnRleHRcIjpbXCJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MVwiXSxcImlkXCI6XCJodHRwczovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzE4NzJcIixcInR5cGVcIjpbXCJWZXJpZmlhYmxlQ3JlZGVudGlhbFwiLFwiQkNWZXJpZmlhYmxlU3VwcGx5Q2hhaW5DcmVkZW50aWFsXCJdLFwiaXNzdWVyXCI6e1wiaWRcIjpcImRpZDpldGhyOjB4NmNjMkNFNzgzMzE1NzQ3YzM3MmQyZDkwY0FmNzRhQjJiMGNGNzg5MFwiLFwibmFtZVwiOlwiTGl0aGl1bSBNaW5lciBJbmNvcnBvcmF0ZWRcIn0sXCJob2xkZXJcIjp7XCJpZFwiOlwiZGlkOmV0aHI6MHhCNTg1RDgyNTAyOTg3MDIyNThGRWE1MDFhRDU4RGJFNGVCQmQ3NDNhXCIsXCJuYW1lXCI6XCJBbm9kZSBQcm9kdWNlciBJbmNvcnBvcmF0ZWRcIn0sXCJpc3N1YW5jZURhdGVcIjpcIjIwMDAtMDEtMDFUMDA6MDA6MDBaXCIsXCJjcmVkZW50aWFsU3ViamVjdFwiOntcImlkXCI6XCJkaWQ6ZXhhbXBsZToxMjM0NVwiLFwic3ViamVjdERldGFpbHNcIjp7XCJwcm9kdWN0XCI6XCJMaXRoaXVtXCIsXCJiYXRjaE51bWJlclwiOlwiQUJDREVcIixcInF1YW50aXR5XCI6XCIzMDAwIGtnXCJ9LFwicHJldmlvdXNDcmVkZW50aWFsXCI6e1wibmFtZVwiOlwibGl0aGl1bS1taW5lci12c3NjLmpzb25cIixcImNpZFwiOlwiUW1OVHFXNDU1TnZLY29nc1ozMnV6aGUxRzFISllhRmJueUFjQjZNWFV6NHBOc1wifSxcImNvbXBvbmVudENyZWRlbnRpYWxzXCI6W10sXCJ0cmFuc2FjdGlvbklkXCI6XCIweDEyMzQ1Njc4OWFiY2RlZlwifX0ifQ.O3TnS0AKQ5IzdJGmVVNunZFW5Y8gxThhbuRiyBdlMfSBmJzuQ65_pHXZXQZ3v3Pr5ODTnyeuRpOxILMNJZK6BgaAyup3GAcoXKHwhCCepg1EZJQ40kQFOrGnSAL3SIw-gEwphi6n-5VMfrdzxnDNFSqPU0-CTVyAN7QgnbwtOnculZ1FGsYB38uzVf4zASgf0JkDa_0XdAWR4KAl66hPL_p7h93uSm05yVNzNlVa6AI4EopWYX7ht7YLlv9nU8zQGGWZgwuCfO4l-4NeGI1u_Nwbx2AH4GqPIcVgEtM_QMGXebs-PilzaLDouz0WyUqKVscWLZAxFPv8sFtY4tOnYg"
     }
+  }
 }
