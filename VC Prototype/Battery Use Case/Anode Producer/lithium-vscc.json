@@ -26,7 +26,10 @@
     "previousCredential": null,
     "componentCredentials": [],
     "transactionId": "0x123456789abcdef",
-    "certificateCredential": null
+    "certificateCredential": {
+      "name": "mining-certificate-vc.json",
+      "cid": "examplecid"
+    }
   },
   "proofs": {
     "issuerProof": {
