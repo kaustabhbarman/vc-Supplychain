@@ -8,45 +8,50 @@
         "BCVerifiableSupplyChainCredential"
     ],
     "issuer": {
-      "id": "did:example:76e12ec712ebc6f1c221ebfeb1g",
-      "name": "Anode Producer Incorporated"
+      "id": "did:example:76e12ec712ebc6f1c221ebfeb1i",
+      "name": "Battery Manufacturer Incorporated"
     },
     "holder": {
-      "id": "did:example:76e12ec712ebc6f1c221ebfeb1g",
-      "name": "Anode Producer Incorporated"
+      "id": "did:example:76e12ec712ebc6f1c221ebfeb1i",
+      "name": "Car Manufacturer Incorporated"
     },
     "issuanceDate": "2000-01-01T00:00:00Z",
     "credentialSubject": {
         "id": "did:example:12345",
         "subjectDetails": {
-            "product": "Anode",
+            "product": "Battery",
             "batchNumber": "ABCDE",
-            "quantity": "10000 Units"
+            "quantity": "5000 Units"
         },
         "previousCredential": null,
         "componentCredentials": [
             {
-                "name": "lithium-producer1-vscc.json",
+                "name": "anode-manufacturer-vscc.json",
+                "cid": "examplecid"
+            },
+            {
+                "name": "cathode-manufacturer-vscc.json",
                 "cid": "examplecid"
             }
         ],
-        "transactionId": ""
+        "transactionId": "0x123456789abcdef",
+        "certificateCredential": null
     },
 
     "proofs": {
         "issuerProof": {
             "type": "RsaSignature2018",
-            "created": "2000-01-01T00:00:00Z",
+            "created": "2000-01-02T00:00:00Z",
             "proofPurpose": "assertionMethod",
-            "verificationMethod": "https://example.edu/issuers/565049#key-2",
-            "jws": "example_jws_2"
+            "verificationMethod": "https://example.edu/issuers/565049#key-4",
+            "jws": "example_jws_4"
         },
         "holderProof": {
             "type": "RsaSignature2018",
-            "created": "2000-01-01T00:00:00Z",
+            "created": "2000-01-02T00:00:00Z",
             "proofPurpose": "assertionMethod",
-            "verificationMethod": "https://example.edu/issuers/565049#key-2",
-            "jws": "example_jws_2"
+            "verificationMethod": "https://example.edu/issuers/565049#key-5",
+            "jws": "example_jws_5"
         }
     }
 }

@@ -13,7 +13,7 @@
     },
     "holder": {
       "id": "did:example:76e12ec712ebc6f1c221ebfeb1i",
-      "name": "Car Manufacturer Incorporated"
+      "name": "Battery Manufacturer Incorporated"
     },
     "issuanceDate": "2000-01-01T00:00:00Z",
     "credentialSubject": {
@@ -23,12 +23,15 @@
             "batchNumber": "ABCDE",
             "quantity": "10000 Units"
         },
-        "previousCredential": {
-            "name": "anode-producer1-vscc.json",
-            "cid": "examplecid"
-        },
-        "componentCredentials": [],
-        "transactionId": "0x123456789abcdef"
+        "previousCredential": null,
+        "componentCredentials": [
+            {
+                "name": "lithium-vscc.json",
+                "cid": "examplecid"
+            }
+        ],
+        "transactionId": "0x123456789abcdef",
+        "certificateCredential": null
     },
 
     "proofs": {

@@ -23,12 +23,10 @@
             "batchNumber": "ABCDE",
             "quantity": "3000 kg"
         },
-        "previousCredential": {
-            "name" : "lithium-miner-vssc.json",
-            "cid" : "examplecid"
-          },
+        "previousCredential": null,
         "componentCredentials": [],
-        "transactionId": "0x123456789abcdef"
+        "transactionId": "0x123456789abcdef",
+        "certificateCredential": null
     },
 
     "proofs": {
