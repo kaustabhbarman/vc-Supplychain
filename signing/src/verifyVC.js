@@ -36,7 +36,7 @@ async function verifyProof(proof, dataToVerify, role) {
         return false;
     }
 
-    //check if vc encoded in the proof is the actual proof
+    //check if vc encoded in the proof is the actual vc
     const deepEqual = (obj1, obj2) => JSON.stringify(obj1) === JSON.stringify(obj2);
     if(!deepEqual(vc, dataToVerify)){
         console.error("jws encoded VC for "+role+" does not match actual VC.");
