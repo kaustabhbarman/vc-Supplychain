@@ -8,16 +8,16 @@
         "LicenseCredential"
     ],
     "issuer": {
-      "id": "did:example:76e12ec712ebc6f1c221ebfeb1f",
+      "id": "did:ethr:0xf9d4fF2A0DfA05C703ac1fA2F9d12D5fa270099e",
       "name": "Government Ministry"
     },
     "holder": {
-      "id": "did:ethr:0x6cc2CE783315747c372d2d90cAf74aB2b0cF7890",
+      "id": "did:ethr:0x22D01c4233Ba4186b96f650af6aBBa33fda2e68b",
       "name": "Lithium Miner Incorporated"
     },
     "issuanceDate": "2000-01-01T00:00:00Z",
     "credentialSubject": {
-      "id": "did:ethr:0x6cc2CE783315747c372d2d90cAf74aB2b0cF7890",
+      "id": "did:ethr:0x22D01c4233Ba4186b96f650af6aBBa33fda2e68b",
       "license": {
         "type": "Mining License",
         "allowedResource": "Lithium",

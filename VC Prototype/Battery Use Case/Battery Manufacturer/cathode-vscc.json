@@ -1,53 +1,52 @@
 {
-    "@context": [
-        "https://www.w3.org/2018/credentials/v1"
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1"
+  ],
+  "id": "https://example.edu/credentials/1872",
+  "type": [
+    "VerifiableCredential",
+    "BCVerifiableSupplyChainCredential"
+  ],
+  "issuer": {
+    "id": "did:ethr:0xF8111c0BeD03B62C3A6427F0D89A30811f576641",
+    "name": "Cathode Producer Incorporated"
+  },
+  "holder": {
+    "id": "did:ethr:0xA931002af7DF9f8e12E9ACD0bbaaa921D282942E",
+    "name": "Battery Manufacturer Incorporated"
+  },
+  "issuanceDate": "2000-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:ethr:0xA931002af7DF9f8e12E9ACD0bbaaa921D282942E",
+    "subjectDetails": {
+      "product": "Cathode",
+      "batchNumber": "ABCDE",
+      "quantity": "10000 Units"
+    },
+    "previousCredential": null,
+    "componentCredentials": [
+      {
+        "name": "lithium-vscc.json",
+        "cid": "QmPWCZhwJnMNHoaEJaTVw8GCDkzfxDT1F6VDsS3T1yFwvj"
+      }
     ],
-    "id": "https://example.edu/credentials/1872",
-    "type": [
-        "VerifiableCredential",
-        "BCVerifiableSupplyChainCredential"
-    ],
-    "issuer": {
-      "id": "did:example:76e12ec712ebc6f1c221ebfeb1h",
-      "name": "Cathode Producer Incorporated"
+    "transactionId": "0x123456789abcdef",
+    "certificateCredential": null
+  },
+  "proofs": {
+    "issuerProof": {
+      "type": "RsaSignature2018",
+      "created": "2024-08-05T15:44:37.566Z",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAujiR0aepr+MutwygSm9jkqyoJKg5LbLKwMoZYyQcSKAc8zlskrcHL940ObycEgjT8lqC5l+eLFKTy8i9yOeqvfLCaddiY0yd8a5BindBxzp4vpobi0QR803SnFld3ePaHMvDK08mCbPGhYLsd4erJHx82Y6dAfzwuGAMGvlby/o3BCAma7I3w8K3Ki5p9m4oy3l1a37gDjPoXsGI8hbxmGFt9KcSNjXjTYcHoTaHMI5Tu6+Gu3DlSsp7b0vqEyGmrOgcFyC98B1Qh8mQZAk03P+/A+ifWjqxW/Ysy2aIE6IhUzh3ipQsdy5wc2uNawi4fHce+2Q4pT5jI6YsZWyMoQIDAQAB",
+      "jws": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoie1wiQGNvbnRleHRcIjpbXCJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MVwiXSxcImlkXCI6XCJodHRwczovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzE4NzJcIixcInR5cGVcIjpbXCJWZXJpZmlhYmxlQ3JlZGVudGlhbFwiLFwiQkNWZXJpZmlhYmxlU3VwcGx5Q2hhaW5DcmVkZW50aWFsXCJdLFwiaXNzdWVyXCI6e1wiaWRcIjpcImRpZDpldGhyOjB4RjgxMTFjMEJlRDAzQjYyQzNBNjQyN0YwRDg5QTMwODExZjU3NjY0MVwiLFwibmFtZVwiOlwiQ2F0aG9kZSBQcm9kdWNlciBJbmNvcnBvcmF0ZWRcIn0sXCJob2xkZXJcIjp7XCJpZFwiOlwiZGlkOmV0aHI6MHhBOTMxMDAyYWY3REY5ZjhlMTJFOUFDRDBiYmFhYTkyMUQyODI5NDJFXCIsXCJuYW1lXCI6XCJCYXR0ZXJ5IE1hbnVmYWN0dXJlciBJbmNvcnBvcmF0ZWRcIn0sXCJpc3N1YW5jZURhdGVcIjpcIjIwMDAtMDEtMDFUMDA6MDA6MDBaXCIsXCJjcmVkZW50aWFsU3ViamVjdFwiOntcImlkXCI6XCJkaWQ6ZXRocjoweEE5MzEwMDJhZjdERjlmOGUxMkU5QUNEMGJiYWFhOTIxRDI4Mjk0MkVcIixcInN1YmplY3REZXRhaWxzXCI6e1wicHJvZHVjdFwiOlwiQ2F0aG9kZVwiLFwiYmF0Y2hOdW1iZXJcIjpcIkFCQ0RFXCIsXCJxdWFudGl0eVwiOlwiMTAwMDAgVW5pdHNcIn0sXCJwcmV2aW91c0NyZWRlbnRpYWxcIjpudWxsLFwiY29tcG9uZW50Q3JlZGVudGlhbHNcIjpbe1wibmFtZVwiOlwibGl0aGl1bS12c2NjLmpzb25cIixcImNpZFwiOlwiUW1QV0NaaHdKbk1OSG9hRUphVFZ3OEdDRGt6ZnhEVDFGNlZEc1MzVDF5Rnd2alwifV0sXCJ0cmFuc2FjdGlvbklkXCI6XCIweDEyMzQ1Njc4OWFiY2RlZlwiLFwiY2VydGlmaWNhdGVDcmVkZW50aWFsXCI6bnVsbH19In0.PqLo_P3_cF09O_lbWVNkNXL9MTXPh9m66BD0VKVRAMtkS-Ewsh2oeW6yID00uhMZ88C3xdsYxe4hPkWxO-C3q8PG7bH-9p3n89C2yBcdq1g88ngHpn0slKmnqFbv9q5dpFqA0Ne-MZUXqTjFplkZlkhHR5yLuf8K4FuGKn3YIrAnuE1p7wYsfRAhfWfs9XMgAXAF0Ch4JQX0rym1N7s819uhsqpNK4E_oh7_39Pz1nJrp2uc-L7D2mxvpD7vuL9PJ1ZD6dusLMJmXFUGPJt5mNgG0eJPEHrVOXns_ZygRhXSNoBoq8MEqVMYOUUpCpruj3M_vWnc_dDIjzhrP2Npwg"
     },
-    "holder": {
-      "id": "did:example:76e12ec712ebc6f1c221ebfeb1i",
-      "name": "Battery Manufacturer Incorporated"
-    },
-    "issuanceDate": "2000-01-01T00:00:00Z",
-    "credentialSubject": {
-        "id": "did:example:12345",
-        "subjectDetails": {
-            "product": "Cathode",
-            "batchNumber": "ABCDE",
-            "quantity": "10000 Units"
-        },
-        "previousCredential": null,
-        "componentCredentials": [
-            {
-                "name": "lithium-vscc.json",
-                "cid": "examplecid"
-            }
-        ],
-        "transactionId": "0x123456789abcdef",
-        "certificateCredential": null
-    },
-
-    "proofs": {
-        "issuerProof": {
-            "type": "RsaSignature2018",
-            "created": "2000-01-01T00:00:00Z",
-            "proofPurpose": "assertionMethod",
-            "verificationMethod": "https://example.edu/issuers/565049#key-3",
-            "jws": "example_jws_3"
-        },
-        "holderProof": {
-            "type": "RsaSignature2018",
-            "created": "2000-01-01T00:00:00Z",
-            "proofPurpose": "assertionMethod",
-            "verificationMethod": "https://example.edu/issuers/565049#key-4",
-            "jws": "example_jws_4"
-        }
+    "holderProof": {
+      "type": "RsaSignature2018",
+      "created": "2024-08-05T15:44:40.662Z",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwstRiUAFuKyA67te2r1Vf2VqMFdP8C+ZXqoPAwvpvxXoG694KPjT3QBcsKhu0Trozv1xHumJZ+N7VDqP74mD0lMCHj5lPPvdQXPZ2HVkFzruPMSUgdzBCRGS5LsWiyvO5mC6j1XRwI5eZivl4YzFy4/Nnz6phrQwhgwJClDN0AXWEpYiK6XXO81+Adoo5u2TFxoxcsL98DEgjDvNPSZtjLSpv9K6cZTiWAHube2Kw2QUSLIyndXeRJu7rSRvn2AVatI897LVVrB0Po5ltsTgcTFnGmWUSYz0snJjfNpcakjXBWJAMdQLVExITU0F+NIZUzlTw4c1SqHPJj2iG9SHGwIDAQAB",
+      "jws": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoie1wiQGNvbnRleHRcIjpbXCJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MVwiXSxcImlkXCI6XCJodHRwczovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzE4NzJcIixcInR5cGVcIjpbXCJWZXJpZmlhYmxlQ3JlZGVudGlhbFwiLFwiQkNWZXJpZmlhYmxlU3VwcGx5Q2hhaW5DcmVkZW50aWFsXCJdLFwiaXNzdWVyXCI6e1wiaWRcIjpcImRpZDpldGhyOjB4RjgxMTFjMEJlRDAzQjYyQzNBNjQyN0YwRDg5QTMwODExZjU3NjY0MVwiLFwibmFtZVwiOlwiQ2F0aG9kZSBQcm9kdWNlciBJbmNvcnBvcmF0ZWRcIn0sXCJob2xkZXJcIjp7XCJpZFwiOlwiZGlkOmV0aHI6MHhBOTMxMDAyYWY3REY5ZjhlMTJFOUFDRDBiYmFhYTkyMUQyODI5NDJFXCIsXCJuYW1lXCI6XCJCYXR0ZXJ5IE1hbnVmYWN0dXJlciBJbmNvcnBvcmF0ZWRcIn0sXCJpc3N1YW5jZURhdGVcIjpcIjIwMDAtMDEtMDFUMDA6MDA6MDBaXCIsXCJjcmVkZW50aWFsU3ViamVjdFwiOntcImlkXCI6XCJkaWQ6ZXRocjoweEE5MzEwMDJhZjdERjlmOGUxMkU5QUNEMGJiYWFhOTIxRDI4Mjk0MkVcIixcInN1YmplY3REZXRhaWxzXCI6e1wicHJvZHVjdFwiOlwiQ2F0aG9kZVwiLFwiYmF0Y2hOdW1iZXJcIjpcIkFCQ0RFXCIsXCJxdWFudGl0eVwiOlwiMTAwMDAgVW5pdHNcIn0sXCJwcmV2aW91c0NyZWRlbnRpYWxcIjpudWxsLFwiY29tcG9uZW50Q3JlZGVudGlhbHNcIjpbe1wibmFtZVwiOlwibGl0aGl1bS12c2NjLmpzb25cIixcImNpZFwiOlwiUW1QV0NaaHdKbk1OSG9hRUphVFZ3OEdDRGt6ZnhEVDFGNlZEc1MzVDF5Rnd2alwifV0sXCJ0cmFuc2FjdGlvbklkXCI6XCIweDEyMzQ1Njc4OWFiY2RlZlwiLFwiY2VydGlmaWNhdGVDcmVkZW50aWFsXCI6bnVsbH19In0.vednsM_g-PH9ej-oDXQikA6Ryo1JWlteCLNkJaaZ1dSOxATtk9igBbe6l5u-RynM-jixZRjgbtZnCrbtoBfGUx0IPiNp8T2aL35IRiZq3aaK4R1VGvH-LGtDUAdatmSZc9Uue_aJXUYLCMGCXa2hvVv5Gccp5GZZkjXEYEhCd_wBDEAP387GQ2mTWXPbITR9Bp7Sw28VnyaWrSsETuB0be1YmK11VS24s7RKVr0hpnb2UkjniPnwugpAuW5d0Pl6uqxKH23dktx3T-orDafvDVco-KRBUO-9i_5mH53kgvpsaAjKP8NI7mwnDCv36WUGmSTJc-aQT-olHxAD9oXfEA"
     }
+  }
 }

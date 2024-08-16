@@ -1,0 +1,50 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1"
+  ],
+  "id": "https://example.edu/credentials/1872",
+  "type": [
+    "VerifiableCredential",
+    "BCVerifiableSupplyChainCredential"
+  ],
+  "issuer": {
+    "id": "did:ethr:0x22D01c4233Ba4186b96f650af6aBBa33fda2e68b",
+    "name": "Lithium Miner Incorporated"
+  },
+  "holder": {
+    "id": "did:ethr:0x377D0765213B517E7D2c840e82fbff149A941721",
+    "name": "Anode Producer Incorporated"
+  },
+  "issuanceDate": "2000-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:ethr:0x377D0765213B517E7D2c840e82fbff149A941721",
+    "subjectDetails": {
+      "product": "Lithium",
+      "batchNumber": "ABCDE",
+      "quantity": "3000 kg"
+    },
+    "previousCredential": null,
+    "componentCredentials": [],
+    "transactionId": "0x123456789abcdef",
+    "certificateCredential": {
+      "name": "mining-certificate-vc.json",
+      "cid": "QmZgHHcwZnPeVhppfvYujP32HELxN5Y81Kkupvoubg5Hb9"
+    }
+  },
+  "proofs": {
+    "issuerProof": {
+      "type": "RsaSignature2018",
+      "created": "2024-08-05T15:30:42.511Z",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtploHKAVNJcCxKlRjU8+0lTspY2fGiGjpJcbS4KcZMvAfsOsfWf8Cc79ibMxuSVvRwh0deMfJEyz0W3Q9ClYsVK0RkFox0I8qOF5gemse9eP81839kFmB+TQG+eTk4ZSdtvVKihDNo93EUR2BbKRnHku9lkHVu/WSeHxaBuFOs0tVoMwgL1DVHv1eMlutnX9brTNYc7992oE20ya0v2I5x+9E+dxNvIMMk5aai3yOFp4QniLwpYkYqFWLKXb503qjcZx3aArn9w0tYNF7ktDJYSqEq6NmmR3Np5BFSkfSjfQegTF/bC5zkOg5g9s9GS4GRc/QWX1+UA3I34s7CR5rQIDAQAB",
+      "jws": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoie1wiQGNvbnRleHRcIjpbXCJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MVwiXSxcImlkXCI6XCJodHRwczovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzE4NzJcIixcInR5cGVcIjpbXCJWZXJpZmlhYmxlQ3JlZGVudGlhbFwiLFwiQkNWZXJpZmlhYmxlU3VwcGx5Q2hhaW5DcmVkZW50aWFsXCJdLFwiaXNzdWVyXCI6e1wiaWRcIjpcImRpZDpldGhyOjB4MjJEMDFjNDIzM0JhNDE4NmI5NmY2NTBhZjZhQkJhMzNmZGEyZTY4YlwiLFwibmFtZVwiOlwiTGl0aGl1bSBNaW5lciBJbmNvcnBvcmF0ZWRcIn0sXCJob2xkZXJcIjp7XCJpZFwiOlwiZGlkOmV0aHI6MHgzNzdEMDc2NTIxM0I1MTdFN0QyYzg0MGU4MmZiZmYxNDlBOTQxNzIxXCIsXCJuYW1lXCI6XCJBbm9kZSBQcm9kdWNlciBJbmNvcnBvcmF0ZWRcIn0sXCJpc3N1YW5jZURhdGVcIjpcIjIwMDAtMDEtMDFUMDA6MDA6MDBaXCIsXCJjcmVkZW50aWFsU3ViamVjdFwiOntcImlkXCI6XCJkaWQ6ZXRoOjB4Mzc3RDA3NjUyMTNCNTE3RTdEMmM4NDBlODJmYmZmMTQ5QTk0MTcyMVwiLFwic3ViamVjdERldGFpbHNcIjp7XCJwcm9kdWN0XCI6XCJMaXRoaXVtXCIsXCJiYXRjaE51bWJlclwiOlwiQUJDREVcIixcInF1YW50aXR5XCI6XCIzMDAwIGtnXCJ9LFwicHJldmlvdXNDcmVkZW50aWFsXCI6bnVsbCxcImNvbXBvbmVudENyZWRlbnRpYWxzXCI6W10sXCJ0cmFuc2FjdGlvbklkXCI6XCIweDEyMzQ1Njc4OWFiY2RlZlwiLFwiY2VydGlmaWNhdGVDcmVkZW50aWFsXCI6e1wibmFtZVwiOlwibWluaW5nLWNlcnRpZmljYXRlLXZjLmpzb25cIixcImNpZFwiOlwiUW1aZ0hIY3dablBlVmhwcGZ2WXVqUDMySEVMeE41WTgxS2t1cHZvdWJnNUhiOVwifX19In0.i7kwqJP2wJwEC0SKPNQaAxTzfibBMDoWM8fVaALoZCg87tS3HOvOMV4cF2S_HPtCbeWqsugBfvbI0HJMR0pIQ537HYqe8KC0RtfQcXCzC8GETz9dtBj70cKscXW-fq0dDNUomJ6kjKXchsmVvmtqRWkFMP31t_APyYvLAiFV-fnPU2y3niwjBPXhBX5HxKzMzaorGWR_up6QUKLGSjidHx0xLc7PcyrbZZ2x_JCl3z6uBGUp3RAAP_rBXoUvesvNBBQaXCRXO4izXO0uuc581u2jVanXAZ6Fj1FbshLRXdrh6AUmjoKLEjjrz4OunXZA_8pYZ73sdU-9tQhpSSTo0w"
+    },
+    "holderProof": {
+      "type": "RsaSignature2018",
+      "created": "2024-08-05T15:31:21.270Z",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo/U4gA9AvidJhJqhSKArXvhCEbpll6zpYujDT0l9U01HOyKAbjEJ0ybpV6R4nS/DMuX7YcF1Zr2vWvb0Aezkx2R6xtb3hA3MbKBS8QELRqh13HkCii/Px+zP012avBydMk7x4XupS0XBxII63AaE9dS/BAYsfNf05nNZn1p2VBdhG8zcR/lWt3u0avB8pKLVUYfswXDcAF/pyG+YL2LqRws8jd7sDw5kYvgK8jXzv1/ItzRm1cHRr3D9hoLH1RpBQ2sUV9eiHlNpjFNGxtHdLZzr4vrQ00lBC43ieqKGJOb8cXRgq15u5YFNHpTxg77kqhfx3PaYAwMLTLcgZfz8/wIDAQAB",
+      "jws": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoie1wiQGNvbnRleHRcIjpbXCJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MVwiXSxcImlkXCI6XCJodHRwczovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzE4NzJcIixcInR5cGVcIjpbXCJWZXJpZmlhYmxlQ3JlZGVudGlhbFwiLFwiQkNWZXJpZmlhYmxlU3VwcGx5Q2hhaW5DcmVkZW50aWFsXCJdLFwiaXNzdWVyXCI6e1wiaWRcIjpcImRpZDpldGhyOjB4MjJEMDFjNDIzM0JhNDE4NmI5NmY2NTBhZjZhQkJhMzNmZGEyZTY4YlwiLFwibmFtZVwiOlwiTGl0aGl1bSBNaW5lciBJbmNvcnBvcmF0ZWRcIn0sXCJob2xkZXJcIjp7XCJpZFwiOlwiZGlkOmV0aHI6MHgzNzdEMDc2NTIxM0I1MTdFN0QyYzg0MGU4MmZiZmYxNDlBOTQxNzIxXCIsXCJuYW1lXCI6XCJBbm9kZSBQcm9kdWNlciBJbmNvcnBvcmF0ZWRcIn0sXCJpc3N1YW5jZURhdGVcIjpcIjIwMDAtMDEtMDFUMDA6MDA6MDBaXCIsXCJjcmVkZW50aWFsU3ViamVjdFwiOntcImlkXCI6XCJkaWQ6ZXRoOjB4Mzc3RDA3NjUyMTNCNTE3RTdEMmM4NDBlODJmYmZmMTQ5QTk0MTcyMVwiLFwic3ViamVjdERldGFpbHNcIjp7XCJwcm9kdWN0XCI6XCJMaXRoaXVtXCIsXCJiYXRjaE51bWJlclwiOlwiQUJDREVcIixcInF1YW50aXR5XCI6XCIzMDAwIGtnXCJ9LFwicHJldmlvdXNDcmVkZW50aWFsXCI6bnVsbCxcImNvbXBvbmVudENyZWRlbnRpYWxzXCI6W10sXCJ0cmFuc2FjdGlvbklkXCI6XCIweDEyMzQ1Njc4OWFiY2RlZlwiLFwiY2VydGlmaWNhdGVDcmVkZW50aWFsXCI6e1wibmFtZVwiOlwibWluaW5nLWNlcnRpZmljYXRlLXZjLmpzb25cIixcImNpZFwiOlwiUW1aZ0hIY3dablBlVmhwcGZ2WXVqUDMySEVMeE41WTgxS2t1cHZvdWJnNUhiOVwifX19In0.a-q_ZF53XgmCXg6OQA6lG1rlr1A5Kn85v9vDVeQQ5ONOsep1B5ArKSbK_M3BHJpA9GxECnba-sR7H2SYK1uaKxr6uAOqTRRsd9pRTqqQwHrXEIHTGK1Lfe5lCTRfqp7o6cbqY3DjNd1FL5NBzpnKjG0llY2OnKCKqUPYK3j69J19jKUwFK5188SPfDTa1JepYs6nupz6VDBT9EXgyvVN7Wle6J1bUX254icSKyu-_yAzJBuYF-MkO2FerYyW1QSsIKTR_Njsf5B7Jj-OGWu5_HigvPfa_eiVQaAW92WFw1y4yJMe--7qm5ZRhc046JJRAyA4-x4DIv_QbEvKhHLKUw"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "address": "0xbEe0FaF3ae3b4Dde392f56a1D2b0c015254cB117",
+  "privateKey": "0x6a6f2e82724cbb974c3e9ea25a9e54f7bdb869a334e126c2e567cc2be9a1cdc7",
+  "publicKey": "0x0364ceffc39bf3e27a60a32d9b3e8bfb6aa3ee9585a3cd6a07dafeeb32655fb971",
+  "identifier": "0x0364ceffc39bf3e27a60a32d9b3e8bfb6aa3ee9585a3cd6a07dafeeb32655fb971"
+}
