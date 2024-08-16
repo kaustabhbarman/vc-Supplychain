@@ -59,7 +59,7 @@ function addProofToData(data, role, signature, signer) {
 }
 
 // Main function to read, sign, and write JSON file
-async function signJsonFile(vcPath, identityPath, role) {
+async function signVC(vcPath, identityPath, role) {
     // Read JSON file
     const jsonData = readJsonFile(vcPath);
 
@@ -95,4 +95,4 @@ if (!vc || !entity || !role) {
 }
 
 // Sign the JSON file and save to the specified file
-signJsonFile(vcPath, identityPath, role);
+signVC(vcPath, identityPath, role);
