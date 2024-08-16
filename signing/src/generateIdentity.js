@@ -15,7 +15,7 @@ function generateIdentity(identityPath) {
 // Get Entity for which to generate an Identity from command line arguments
 const entity = process.argv[2];
 // set the Path for the identity document
-identityPath = "../../VC Prototype/Battery Use Case/"+entity+"/identity.txt"
+identityPath = "../../VC Use Cases/Battery Use Case/"+entity+"/identity.txt"
 
 if (!entity) {
     console.error('Please provide an existing entity as a parameter.');

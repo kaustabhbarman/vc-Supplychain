@@ -85,9 +85,9 @@ async function signJsonFile(vcPath, identityPath, role) {
 const [vc, entity, role] = process.argv.slice(2);
 
 // get identity for the entity signing the vc
-const identityPath = "../../VC Prototype/Battery Use Case/"+entity+"/identity.txt"
+const identityPath = "../../VC Use Cases/Battery Use Case/"+entity+"/identity.txt"
 // get vc Path
-const vcPath = "../../VC Prototype/Battery Use Case/"+vc
+const vcPath = "../../VC Use Cases/Battery Use Case/"+vc
 
 if (!vc || !entity || !role) {
     console.error('Usage: node signJson.js <vc> <entity> <role>');
