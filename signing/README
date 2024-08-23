@@ -20,42 +20,22 @@ To set up the project, follow these steps:
 This will install all the required dependencies listed in package.json.
 
 ## List of Functionalities:
-
-## 1. Ethereum Account Creation Script
+    
+## 1. Account and DID Creation Script
 
 ### Description
 
 This script creates a new Ethereum account and saves the account details (address and private key) to a specified file. It uses the `web3` library to generate the account.
+This script also creates a Decentralized Identifier (DID) and its associated DID Document. It uses the `ethr-did` library to generate the DID based on an Ethereum account. The script also allows you to specify an existing DID as the controller DID if needed. 
 
 ### Usage
 
 To use the script, run the following command in your terminal:
 
-    node createEthAccount.js <outputFilePath>
-
-* <b>outputFilePath:</b> Path where the account details (address and private key) will be saved.
-    
-An example could be:
-
-    node createEthAccount.js "../../VC Prototype/Battery Use Case/Lithium Miner/Identity Documents/ethereum-account.json"
-    
-## 2. DID Creation Script
-
-### Description
-
-This script creates a Decentralized Identifier (DID) and its associated DID Document. It uses the `ethr-did` library to generate the DID based on an Ethereum account. The script also allows you to specify an existing DID as the controller DID if needed. 
-
-<b>In future iterations this DID Document will be stored on ethereum and adjusted to ethereums standards.</b>
-
-### Usage
-
-To use the script, run the following command in your terminal:
-
-    node createDidDocument.js <outputFilePath> <accountDataFilePath> [<controllerDidFilePath>]
+    node createDidDocument.js <outputFilePath> <accountDataFilePath>
 
 * <b>outputFilePath:</b> Path where the DID and DID Document will be saved.
 * <b>accountDataFilePath:</b> Path to the file containing the Ethereum account details (address and private key).
-* <b>controllerDidFilePath (Optional):</b> Path to the file containing an existing DID to use as the controller. If not provided, the newly created DID will be used as the controller.
 
 an example could be:
 

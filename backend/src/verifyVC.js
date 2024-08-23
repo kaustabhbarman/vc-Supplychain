@@ -1,15 +1,10 @@
-const fs = require('fs');
 const { Resolver } = require('did-resolver');
 const { getResolver } = require('ethr-did-resolver');
 const { EthrDID } = require('ethr-did');
 
 const chainNameOrId = 'sepolia';
-
-// Function to read JSON file
-function readJsonFile(filePath) {
-    const data = fs.readFileSync(filePath, 'utf-8');
-    return JSON.parse(data);
-}
+const registryAddress = '0x03d5003bf0e79C5F5223588F347ebA39AfbC3818'; 
+const rpcUrl = "https://sepolia.infura.io/v3/c907419d273445109b873583acc085e7";
 
 // Function to remove the proof section for verification
 function removeProofsSection(data) {
@@ -19,12 +14,9 @@ function removeProofsSection(data) {
 
 // Function to verify the proof of JSON data
 async function verifyProof(proof, dataToVerify, role) {
-    // Setup the DID resolver
-    // create DID Resolver
-    const registryAddress = '0x03d5003bf0e79C5F5223588F347ebA39AfbC3818'; 
-    const rpcUrl = "https://sepolia.infura.io/v3/c907419d273445109b873583acc085e7";
-    const didResolver = new Resolver(getResolver({ rpcUrl: rpcUrl, name: chainNameOrId , registry: registryAddress}));
 
+    // Setup the DID resolver
+    const didResolver = new Resolver(getResolver({ rpcUrl: rpcUrl, name: chainNameOrId , registry: registryAddress}));
     const verificationDid = new EthrDID({ ...EthrDID.createKeyPair()});
 
     //verify jws and extract the signer, the vc and the verified status
@@ -59,32 +51,23 @@ async function verifyProof(proof, dataToVerify, role) {
 }
 
 // Main function to read, verify, and output the result
-async function verifyVC(vcPath) {
-    // Read the JSON file
-    const jsonData = readJsonFile(vcPath);
-
+async function verifyVC(vcjsonData) {
     // Extract the proof section and the data to verify
-    const { proofs, dataToVerify } = removeProofsSection(jsonData);
+    const { proofs, dataToVerify } = removeProofsSection(vcjsonData);
 
     if (!proofs) {
         console.error('No proof section found in the JSON file.');
-        return;
+        return false;
     }
     // Verify each proof
     const issuerProofStatus = await verifyProof(proofs.issuerProof, dataToVerify, "issuer");
     const holderProofStatus = await verifyProof(proofs.holderProof, dataToVerify, "holder");
+
+    if(issuerProofStatus && holderProofStatus) {
+        return true;
+    }
+    return false;
 }
 
-// Get command line arguments
-const [vc] = process.argv.slice(2);
 
-// Get the VC Path
-const vcPath = "../../VC Use Cases/Battery Use Case/" + vc;
-
-if (!vc) {
-    console.error('Usage: node verifyJson.js <vc>');
-    process.exit(1);
-}
-
-// Verify the JSON file and output the result
-verifyVC(vcPath);
+module.exports = { verifyVC };

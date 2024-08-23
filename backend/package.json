@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "did-resolver": "^4.1.0",
+    "ethr-did": "^3.0.21",
+    "ethr-did-resolver": "^10.1.10",
+    "express": "^4.19.2"
+  }
+}
