@@ -56,8 +56,7 @@ async function verifyVC(vcjsonData) {
     const { proofs, dataToVerify } = removeProofsSection(vcjsonData);
 
     if (!proofs) {
-        console.error('No proof section found in the JSON file.');
-        return false;
+        throw new Error('No proofs section found in the JSON file.');
     }
     // Verify each proof
     const issuerProofStatus = await verifyProof(proofs.issuerProof, dataToVerify, "issuer");
