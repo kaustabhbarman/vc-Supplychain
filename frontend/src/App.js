@@ -97,7 +97,7 @@ function App() {
           <div className="loading-spinner">Loading...</div>
         )}
 
-        {!loading && verificationResult && (
+        {!loading && verificationResult !== null && (
           <div className="verification-status">
             Verification Status: {verificationResult ? 'Verified' : 'Not Verified'}
           </div>
