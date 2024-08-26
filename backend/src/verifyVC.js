@@ -51,21 +51,25 @@ async function verifyProof(proof, dataToVerify, role) {
 }
 
 // Main function to read, verify, and output the result
-async function verifyVC(vcjsonData) {
+async function verifyVC(vcjsonData, isCertificate) {
+
     // Extract the proof section and the data to verify
     const { proofs, dataToVerify } = removeProofsSection(vcjsonData);
 
     if (!proofs) {
         throw new Error('No proofs section found in the JSON file.');
     }
-    // Verify each proof
+    // Verify issuerProof
     const issuerProofStatus = await verifyProof(proofs.issuerProof, dataToVerify, "issuer");
-    const holderProofStatus = await verifyProof(proofs.holderProof, dataToVerify, "holder");
-
-    if(issuerProofStatus && holderProofStatus) {
-        return true;
+    
+    //if the VC is a certificate, there is no holderproof
+    if(isCertificate){
+        return issuerProofStatus;
     }
-    return false;
+
+    // Verify holderProof
+    const holderProofStatus = await verifyProof(proofs.holderProof, dataToVerify, "holder");
+    return (issuerProofStatus && holderProofStatus);
 }
 
 

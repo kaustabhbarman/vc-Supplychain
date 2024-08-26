@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1"
+  ],
+  "id": "https://example.edu/credentials/1872",
+  "type": [
+    "VerifiableCredential"
+  ],
+  "issuer": {
+    "id": "did:ethr:sepolia:0x0364ceffc39bf3e27a60a32d9b3e8bfb6aa3ee9585a3cd6a07dafeeb32655fb971",
+    "name": "Lithium Miner Incorporated"
+  },
+  "holder": {
+    "id": "did:ethr:sepolia:0x02849f9bd0b1e8924ead7fe936e85c052651af4261d207224e06b4632a797b22d5",
+    "name": "Cathode Producer Incorporated"
+  },
+  "issuanceDate": "2000-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:ethr:sepolia:0x02849f9bd0b1e8924ead7fe936e85c052651af4261d207224e06b4632a797b22d5",
+    "subjectDetails": {
+      "product": "Lithium",
+      "batchNumber": "ABCDE",
+      "quantity": "3000 kg"
+    },
+    "previousCredential": null,
+    "componentCredentials": [],
+    "transactionId": "0x123456789abcdef",
+    "certificateCredential": {
+      "name": "mining-certificate-vc.json",
+      "cid": "QmZW2DDgTwDBw31fcnBMqySHkBVxvcjs34vxWd2yqdgpo6"
+    }
+  },
+  "proofs": {
+    "issuerProof": {
+      "type": "EcdsaSecp256k1Signature2019",
+      "created": "2024-08-26T10:15:24.420Z",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "did:ethr:sepolia:0x0364ceffc39bf3e27a60a32d9b3e8bfb6aa3ee9585a3cd6a07dafeeb32655fb971",
+      "jws": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NkstUiJ9.eyJpYXQiOjE3MjQ2NjczMjQsIkBjb250ZXh0IjpbImh0dHBzOi8vd3d3LnczLm9yZy8yMDE4L2NyZWRlbnRpYWxzL3YxIl0sImlkIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8xODcyIiwidHlwZSI6WyJWZXJpZmlhYmxlQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOnsiaWQiOiJkaWQ6ZXRocjpzZXBvbGlhOjB4MDM2NGNlZmZjMzliZjNlMjdhNjBhMzJkOWIzZThiZmI2YWEzZWU5NTg1YTNjZDZhMDdkYWZlZWIzMjY1NWZiOTcxIiwibmFtZSI6IkxpdGhpdW0gTWluZXIgSW5jb3Jwb3JhdGVkIn0sImhvbGRlciI6eyJpZCI6ImRpZDpldGhyOnNlcG9saWE6MHgwMjg0OWY5YmQwYjFlODkyNGVhZDdmZTkzNmU4NWMwNTI2NTFhZjQyNjFkMjA3MjI0ZTA2YjQ2MzJhNzk3YjIyZDUiLCJuYW1lIjoiQ2F0aG9kZSBQcm9kdWNlciBJbmNvcnBvcmF0ZWQifSwiaXNzdWFuY2VEYXRlIjoiMjAwMC0wMS0wMVQwMDowMDowMFoiLCJjcmVkZW50aWFsU3ViamVjdCI6eyJpZCI6ImRpZDpldGhyOnNlcG9saWE6MHgwMjg0OWY5YmQwYjFlODkyNGVhZDdmZTkzNmU4NWMwNTI2NTFhZjQyNjFkMjA3MjI0ZTA2YjQ2MzJhNzk3YjIyZDUiLCJzdWJqZWN0RGV0YWlscyI6eyJwcm9kdWN0IjoiTGl0aGl1bSIsImJhdGNoTnVtYmVyIjoiQUJDREUiLCJxdWFudGl0eSI6IjMwMDAga2cifSwicHJldmlvdXNDcmVkZW50aWFsIjpudWxsLCJjb21wb25lbnRDcmVkZW50aWFscyI6W10sInRyYW5zYWN0aW9uSWQiOiIweDEyMzQ1Njc4OWFiY2RlZiIsImNlcnRpZmljYXRlQ3JlZGVudGlhbCI6eyJuYW1lIjoibWluaW5nLWNlcnRpZmljYXRlLXZjLmpzb24iLCJjaWQiOiJRbVpXMkREZ1R3REJ3MzFmY25CTXF5U0hrQlZ4dmNqczM0dnhXZDJ5cWRncG82In19LCJpc3MiOiJkaWQ6ZXRocjpzZXBvbGlhOjB4MDM2NGNlZmZjMzliZjNlMjdhNjBhMzJkOWIzZThiZmI2YWEzZWU5NTg1YTNjZDZhMDdkYWZlZWIzMjY1NWZiOTcxIn0.a4iq24O8rc5hk6_QJ3CANJYc-2ZcFl6zAxbch59v3UYaWZE7nwos4SEV6olfUgaYR6lPUcRjpb_IIuks70_MOAE"
+    },
+    "holderProof": {
+      "type": "EcdsaSecp256k1Signature2019",
+      "created": "2024-08-26T10:15:45.361Z",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "did:ethr:sepolia:0x02849f9bd0b1e8924ead7fe936e85c052651af4261d207224e06b4632a797b22d5",
+      "jws": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NkstUiJ9.eyJpYXQiOjE3MjQ2NjczNDUsIkBjb250ZXh0IjpbImh0dHBzOi8vd3d3LnczLm9yZy8yMDE4L2NyZWRlbnRpYWxzL3YxIl0sImlkIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8xODcyIiwidHlwZSI6WyJWZXJpZmlhYmxlQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOnsiaWQiOiJkaWQ6ZXRocjpzZXBvbGlhOjB4MDM2NGNlZmZjMzliZjNlMjdhNjBhMzJkOWIzZThiZmI2YWEzZWU5NTg1YTNjZDZhMDdkYWZlZWIzMjY1NWZiOTcxIiwibmFtZSI6IkxpdGhpdW0gTWluZXIgSW5jb3Jwb3JhdGVkIn0sImhvbGRlciI6eyJpZCI6ImRpZDpldGhyOnNlcG9saWE6MHgwMjg0OWY5YmQwYjFlODkyNGVhZDdmZTkzNmU4NWMwNTI2NTFhZjQyNjFkMjA3MjI0ZTA2YjQ2MzJhNzk3YjIyZDUiLCJuYW1lIjoiQ2F0aG9kZSBQcm9kdWNlciBJbmNvcnBvcmF0ZWQifSwiaXNzdWFuY2VEYXRlIjoiMjAwMC0wMS0wMVQwMDowMDowMFoiLCJjcmVkZW50aWFsU3ViamVjdCI6eyJpZCI6ImRpZDpldGhyOnNlcG9saWE6MHgwMjg0OWY5YmQwYjFlODkyNGVhZDdmZTkzNmU4NWMwNTI2NTFhZjQyNjFkMjA3MjI0ZTA2YjQ2MzJhNzk3YjIyZDUiLCJzdWJqZWN0RGV0YWlscyI6eyJwcm9kdWN0IjoiTGl0aGl1bSIsImJhdGNoTnVtYmVyIjoiQUJDREUiLCJxdWFudGl0eSI6IjMwMDAga2cifSwicHJldmlvdXNDcmVkZW50aWFsIjpudWxsLCJjb21wb25lbnRDcmVkZW50aWFscyI6W10sInRyYW5zYWN0aW9uSWQiOiIweDEyMzQ1Njc4OWFiY2RlZiIsImNlcnRpZmljYXRlQ3JlZGVudGlhbCI6eyJuYW1lIjoibWluaW5nLWNlcnRpZmljYXRlLXZjLmpzb24iLCJjaWQiOiJRbVpXMkREZ1R3REJ3MzFmY25CTXF5U0hrQlZ4dmNqczM0dnhXZDJ5cWRncG82In19LCJpc3MiOiJkaWQ6ZXRocjpzZXBvbGlhOjB4MDI4NDlmOWJkMGIxZTg5MjRlYWQ3ZmU5MzZlODVjMDUyNjUxYWY0MjYxZDIwNzIyNGUwNmI0NjMyYTc5N2IyMmQ1In0.yt_wO3CCaqpzG7nRHY1k7iJqA-3XAVdL_B7MlfJQ2vMMTfaIIPQR267MvzU0Fow4Fqp8adIcyh9ebQXh5TQGQQA"
+    }
+  }
+}

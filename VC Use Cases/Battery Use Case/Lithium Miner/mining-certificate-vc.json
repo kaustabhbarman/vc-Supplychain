@@ -1,40 +1,41 @@
-  {
-    "@context": [
-        "https://www.w3.org/2018/credentials/v1"
-    ],
-    "id": "https://example.edu/credentials/1872",
-    "type": [
-        "VerifiableCredential",
-        "LicenseCredential"
-    ],
-    "issuer": {
-      "id": "did:ethr:0xf9d4fF2A0DfA05C703ac1fA2F9d12D5fa270099e",
-      "name": "Government Ministry"
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1"
+  ],
+  "id": "https://example.edu/credentials/1872",
+  "type": [
+    "VerifiableCredential",
+    "LicenseCredential"
+  ],
+  "issuer": {
+    "id": "did:ethr:sepolia:0x021921451af17a78bac6bfac4fd2267c91c080ae5768139bc23b1bee73bd1fc121",
+    "name": "Government Ministry"
+  },
+  "holder": {
+    "id": "did:ethr:sepolia:0x0364ceffc39bf3e27a60a32d9b3e8bfb6aa3ee9585a3cd6a07dafeeb32655fb971",
+    "name": "Lithium Miner Incorporated"
+  },
+  "issuanceDate": "2000-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:ethr:sepolia:0x0364ceffc39bf3e27a60a32d9b3e8bfb6aa3ee9585a3cd6a07dafeeb32655fb971",
+    "license": {
+      "type": "Mining License",
+      "allowedResource": "Lithium",
+      "country": "Chile",
+      "validFrom": "2000-01-01",
+      "validTo": "2010-01-01"
     },
-    "holder": {
-      "id": "did:ethr:0x22D01c4233Ba4186b96f650af6aBBa33fda2e68b",
-      "name": "Lithium Miner Incorporated"
-    },
-    "issuanceDate": "2000-01-01T00:00:00Z",
-    "credentialSubject": {
-      "id": "did:ethr:0x22D01c4233Ba4186b96f650af6aBBa33fda2e68b",
-      "license": {
-        "type": "Mining License",
-        "allowedResource": "Lithium",
-        "Country": "Country A",
-        "validFrom": "2000-01-01",
-        "validTo": "2010-01-01"
-      },
-      "terms": {
-        "compliance": "EXAMPLE RULES TO ADHERE TO"
-      }
-    },
-
-    "Proof": {
-      "type": "RsaSignature2018",
-      "created": "2000-01-01T00:00:00Z",
+    "terms": {
+      "compliance": "EXAMPLE RULES TO ADHERE TO"
+    }
+  },
+  "proofs": {
+    "issuerProof": {
+      "type": "EcdsaSecp256k1Signature2019",
+      "created": "2024-08-26T09:47:50.769Z",
       "proofPurpose": "assertionMethod",
-      "verificationMethod": "https://example.edu/issuers/565049#key-0",
-      "jws": "example_jws_0"
+      "verificationMethod": "did:ethr:sepolia:0x021921451af17a78bac6bfac4fd2267c91c080ae5768139bc23b1bee73bd1fc121",
+      "jws": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NkstUiJ9.eyJpYXQiOjE3MjQ2NjU2NzAsIkBjb250ZXh0IjpbImh0dHBzOi8vd3d3LnczLm9yZy8yMDE4L2NyZWRlbnRpYWxzL3YxIl0sImlkIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8xODcyIiwidHlwZSI6WyJWZXJpZmlhYmxlQ3JlZGVudGlhbCIsIkxpY2Vuc2VDcmVkZW50aWFsIl0sImlzc3VlciI6eyJpZCI6ImRpZDpldGhyOnNlcG9saWE6MHgwMjE5MjE0NTFhZjE3YTc4YmFjNmJmYWM0ZmQyMjY3YzkxYzA4MGFlNTc2ODEzOWJjMjNiMWJlZTczYmQxZmMxMjEiLCJuYW1lIjoiR292ZXJubWVudCBNaW5pc3RyeSJ9LCJob2xkZXIiOnsiaWQiOiJkaWQ6ZXRocjpzZXBvbGlhOjB4MDM2NGNlZmZjMzliZjNlMjdhNjBhMzJkOWIzZThiZmI2YWEzZWU5NTg1YTNjZDZhMDdkYWZlZWIzMjY1NWZiOTcxIiwibmFtZSI6IkxpdGhpdW0gTWluZXIgSW5jb3Jwb3JhdGVkIn0sImlzc3VhbmNlRGF0ZSI6IjIwMDAtMDEtMDFUMDA6MDA6MDBaIiwiY3JlZGVudGlhbFN1YmplY3QiOnsiaWQiOiJkaWQ6ZXRocjpzZXBvbGlhOjB4MDM2NGNlZmZjMzliZjNlMjdhNjBhMzJkOWIzZThiZmI2YWEzZWU5NTg1YTNjZDZhMDdkYWZlZWIzMjY1NWZiOTcxIiwibGljZW5zZSI6eyJ0eXBlIjoiTWluaW5nIExpY2Vuc2UiLCJhbGxvd2VkUmVzb3VyY2UiOiJMaXRoaXVtIiwiY291bnRyeSI6IkNoaWxlIiwidmFsaWRGcm9tIjoiMjAwMC0wMS0wMSIsInZhbGlkVG8iOiIyMDEwLTAxLTAxIn0sInRlcm1zIjp7ImNvbXBsaWFuY2UiOiJFWEFNUExFIFJVTEVTIFRPIEFESEVSRSBUTyJ9fSwiaXNzIjoiZGlkOmV0aHI6c2Vwb2xpYToweDAyMTkyMTQ1MWFmMTdhNzhiYWM2YmZhYzRmZDIyNjdjOTFjMDgwYWU1NzY4MTM5YmMyM2IxYmVlNzNiZDFmYzEyMSJ9.ksaoJ0iLjwARxy0q70696PZTQ75WnsKwleyTLl2LpvxW6-D699et76do-hEs53Egx4mASF6SXuR_Y24DKb_KzwE"
     }
   }
+}

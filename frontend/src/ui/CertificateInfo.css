@@ -1,0 +1,41 @@
+/* Certificate information table styling */
+.certificate-info {
+    margin-top: 20px;
+    text-align: left;
+    width: 80%;
+    max-width: 600px;
+    background-color: #2e3338;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+  
+.certificate-info h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    border-bottom: 2px solid #444;
+    padding-bottom: 10px;
+}
+  
+.certificate-info p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+  
+/* Table styles*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+  
+td {
+    padding: 10px;
+    border: 1px solid #444;
+}
+  
+th {
+    padding: 10px;
+    background-color: #3a3f44;
+    border: 1px solid #444;
+    width: 30%;
+}

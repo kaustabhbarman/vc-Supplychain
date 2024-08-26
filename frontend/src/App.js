@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import './App.css';
 import axios from 'axios';
+import ProductInfo from './ui/ProductInfo';
+import CertificateInfo from './ui/CertificateInfo';
+import SearchContainer from './ui/SearchContainer';
 
 
 function App() {
-  // State to store the search input value
   const [cid, setCid] = useState('');
-  // State to store the product information
   const [vc, setVC] = useState(null);
-  // State to store error messages
+  const [isCertificate, setIsCertificate] = useState(false);
   const [error, setError] = useState(null);
   const [verificationResult, setVerificationResult] = useState(null);
+  const [historyStack, setHistoryStack] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const ipfs_base_link = "https://ipfs.filebase.io/ipfs/"
 
@@ -19,14 +22,24 @@ function App() {
   };
 
   const handleCidSubmit = async (cid) => {
+    setLoading(true);
     setVerificationResult(null)
     setError(null);
     setVC(null);
+    setIsCertificate(false);
     try {
       const response = await fetchVC(cid);
       if (response) {
+
+        // Update the history stack
+        setHistoryStack(prevStack => [...prevStack, vc]);
+
+        // Determine if the VC is a certificate or a license
+        const isCertificate = response.type.includes("LicenseCredential") || response.type.includes("CertificateCredential");
+        setIsCertificate(isCertificate);
+
         // Call the backend API to verify the VC
-        const result = await axios.post('http://localhost:3001/verify-vc', { vc: response });
+        const result = await axios.post('http://localhost:3001/verify-vc', { vc: response, isCertificate });
         setVC(response);
         setVerificationResult(result.data.verified);
       } else {
@@ -35,6 +48,9 @@ function App() {
     } catch (err) {
       setError("Verification could not be performed.");
       console.error(err);
+    }
+    finally {
+      setLoading(false);
     }
   };
 
@@ -49,6 +65,7 @@ function App() {
         }
         // Parse the response as JSON
         const vcJsonData = await response.json();
+        //check if vc is a certificate
         return vcJsonData
     } catch (error) {
         // Handle any errors that occur during the fetch
@@ -56,107 +73,52 @@ function App() {
     }
   }
 
+  const handleGoBack = () => {
+    if (historyStack.length > 0) {
+      setError(null);
+      setVerificationResult(null);
+      const previousVC = historyStack[historyStack.length - 1];
+      setHistoryStack(prevStack => prevStack.slice(0, -1)); // Remove the last item from the stack
+      setVC(previousVC);
+      setIsCertificate(previousVC.type.includes("LicenseCredential") || previousVC.type.includes("CertificateCredential"));
+    }
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <div className="search-container">
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Search for Product CID here..."
-            value={cid}
-            onChange={handleCidChange}
-          />
-          <button onClick={() => handleCidSubmit(cid)} className="search-button">
-            Search
-          </button>
-        </div>
-  
-        {verificationResult !== null && (
-          <p>Verification Status: {verificationResult ? 'Verified' : 'Not Verified'}</p>
+        <SearchContainer
+          cid={cid}
+          onCidChange={handleCidChange}
+          onCidSubmit={handleCidSubmit}
+        />
+
+        {loading && (
+          <div className="loading-spinner">Loading...</div>
         )}
-  
-        {vc ? (
-          <div className="product-info">
-            <h2>Product Information</h2>
-            <table>
-              <tbody>
-                <tr>
-                  <th>Product</th>
-                  <td>{vc.credentialSubject.subjectDetails.product}</td>
-                </tr>
-                <tr>
-                  <th>Seller</th>
-                  <td>{vc.issuer.name}</td>
-                </tr>
-                <tr>
-                  <th>Owner</th>
-                  <td>{vc.holder.name}</td>
-                </tr>
-                <tr>
-                  <th>Batch Number</th>
-                  <td>{vc.credentialSubject.subjectDetails.batchNumber}</td>
-                </tr>
-                <tr>
-                  <th>Quantity</th>
-                  <td>{vc.credentialSubject.subjectDetails.quantity}</td>
-                </tr>
-              </tbody>
-            </table>
-  
-            {(vc.credentialSubject.previousCredential || vc.credentialSubject.componentCredentials.length > 0 || vc.credentialSubject.certificateCredential) && (
-            <div className="related-credentials">
-              <h2>Related Credentials</h2>
-              <table>
-                <tbody>
-                  {vc.credentialSubject.previousCredential && (
-                    <tr>
-                      <th>Previous Credential</th>
-                      <td
-                        className="clickable-credential"
-                        onClick={() => handleCidSubmit(vc.credentialSubject.previousCredential.cid)}
-                      >
-                        {vc.credentialSubject.previousCredential.name}
-                      </td>
-                    </tr>
-                  )}
 
-                  {vc.credentialSubject.componentCredentials.length > 0 && (
-                    <tr>
-                      <th>Component Credentials</th>
-                      <td>
-                        {vc.credentialSubject.componentCredentials.map((component, index) => (
-                          <p
-                            key={index}
-                            className="clickable-credential"
-                            onClick={() => handleCidSubmit(component.cid)}
-                          >
-                            {component.name}
-                          </p>
-                        ))}
-                      </td>
-                    </tr>
-                  )}
-
-                  {vc.credentialSubject.certificateCredential && (
-                    <tr>
-                      <th>Certificate Credential</th>
-                      <td
-                        className="clickable-credential"
-                        onClick={() => handleCidSubmit(vc.credentialSubject.certificateCredential.cid)}
-                      >
-                        {vc.credentialSubject.certificateCredential.name}
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-          )}
+        {!loading && verificationResult && (
+          <div className="verification-status">
+            Verification Status: {verificationResult ? 'Verified' : 'Not Verified'}
           </div>
-        ) : error ? (
+        )}
+
+        {!loading && vc && (
+          isCertificate ? (
+            <CertificateInfo vc={vc} />
+          ) : (
+            <ProductInfo vc={vc} handleCidSubmit={handleCidSubmit} />
+          )
+        )}
+
+        {!loading && error && (
           <p className="error-message">{error}</p>
-        ) : null}
+        )}
+
+        {!loading && historyStack.length > 1 && (
+          <button onClick={handleGoBack} className="go-back-button">Go Back</button>
+        )}
+
       </header>
     </div>
   );  

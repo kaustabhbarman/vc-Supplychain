@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1"
+  ],
+  "id": "https://example.edu/credentials/1872",
+  "type": [
+    "VerifiableCredential"
+  ],
+  "issuer": {
+    "id": "did:ethr:sepolia:0x0364ceffc39bf3e27a60a32d9b3e8bfb6aa3ee9585a3cd6a07dafeeb32655fb971",
+    "name": "Lithium Miner Incorporated"
+  },
+  "holder": {
+    "id": "did:ethr:sepolia:0x037001c002d31a52f0781e62addd85058303e8afc48716b7d92791599286bf7c32",
+    "name": "Anode Producer Incorporated"
+  },
+  "issuanceDate": "2000-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:ethr:sepolia:0x037001c002d31a52f0781e62addd85058303e8afc48716b7d92791599286bf7c32",
+    "subjectDetails": {
+      "product": "Lithium",
+      "batchNumber": "ABCDE",
+      "quantity": "3000 kg"
+    },
+    "previousCredential": null,
+    "componentCredentials": [],
+    "transactionId": "0x123456789abcdef",
+    "certificateCredential": {
+      "name": "mining-certificate-vc.json",
+      "cid": "QmZW2DDgTwDBw31fcnBMqySHkBVxvcjs34vxWd2yqdgpo6"
+    }
+  },
+  "proofs": {
+    "issuerProof": {
+      "type": "EcdsaSecp256k1Signature2019",
+      "created": "2024-08-26T10:23:37.222Z",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "did:ethr:sepolia:0x0364ceffc39bf3e27a60a32d9b3e8bfb6aa3ee9585a3cd6a07dafeeb32655fb971",
+      "jws": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NkstUiJ9.eyJpYXQiOjE3MjQ2Njc4MTcsIkBjb250ZXh0IjpbImh0dHBzOi8vd3d3LnczLm9yZy8yMDE4L2NyZWRlbnRpYWxzL3YxIl0sImlkIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8xODcyIiwidHlwZSI6WyJWZXJpZmlhYmxlQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOnsiaWQiOiJkaWQ6ZXRocjpzZXBvbGlhOjB4MDM2NGNlZmZjMzliZjNlMjdhNjBhMzJkOWIzZThiZmI2YWEzZWU5NTg1YTNjZDZhMDdkYWZlZWIzMjY1NWZiOTcxIiwibmFtZSI6IkxpdGhpdW0gTWluZXIgSW5jb3Jwb3JhdGVkIn0sImhvbGRlciI6eyJpZCI6ImRpZDpldGhyOnNlcG9saWE6MHgwMzcwMDFjMDAyZDMxYTUyZjA3ODFlNjJhZGRkODUwNTgzMDNlOGFmYzQ4NzE2YjdkOTI3OTE1OTkyODZiZjdjMzIiLCJuYW1lIjoiQW5vZGUgUHJvZHVjZXIgSW5jb3Jwb3JhdGVkIn0sImlzc3VhbmNlRGF0ZSI6IjIwMDAtMDEtMDFUMDA6MDA6MDBaIiwiY3JlZGVudGlhbFN1YmplY3QiOnsiaWQiOiJkaWQ6ZXRocjpzZXBvbGlhOjB4MDM3MDAxYzAwMmQzMWE1MmYwNzgxZTYyYWRkZDg1MDU4MzAzZThhZmM0ODcxNmI3ZDkyNzkxNTk5Mjg2YmY3YzMyIiwic3ViamVjdERldGFpbHMiOnsicHJvZHVjdCI6IkxpdGhpdW0iLCJiYXRjaE51bWJlciI6IkFCQ0RFIiwicXVhbnRpdHkiOiIzMDAwIGtnIn0sInByZXZpb3VzQ3JlZGVudGlhbCI6bnVsbCwiY29tcG9uZW50Q3JlZGVudGlhbHMiOltdLCJ0cmFuc2FjdGlvbklkIjoiMHgxMjM0NTY3ODlhYmNkZWYiLCJjZXJ0aWZpY2F0ZUNyZWRlbnRpYWwiOnsibmFtZSI6Im1pbmluZy1jZXJ0aWZpY2F0ZS12Yy5qc29uIiwiY2lkIjoiUW1aVzJERGdUd0RCdzMxZmNuQk1xeVNIa0JWeHZjanMzNHZ4V2QyeXFkZ3BvNiJ9fSwiaXNzIjoiZGlkOmV0aHI6c2Vwb2xpYToweDAzNjRjZWZmYzM5YmYzZTI3YTYwYTMyZDliM2U4YmZiNmFhM2VlOTU4NWEzY2Q2YTA3ZGFmZWViMzI2NTVmYjk3MSJ9.mqHzJvEt8x1V10pUZUnUpP-ttKcuQna6MYwyLX_l5tBqQDXZroP5gei1klMSF6Cdeq4KGSp7xFPUJBkoCnNAFgE"
+    },
+    "holderProof": {
+      "type": "EcdsaSecp256k1Signature2019",
+      "created": "2024-08-26T10:23:39.678Z",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "did:ethr:sepolia:0x037001c002d31a52f0781e62addd85058303e8afc48716b7d92791599286bf7c32",
+      "jws": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NkstUiJ9.eyJpYXQiOjE3MjQ2Njc4MTksIkBjb250ZXh0IjpbImh0dHBzOi8vd3d3LnczLm9yZy8yMDE4L2NyZWRlbnRpYWxzL3YxIl0sImlkIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8xODcyIiwidHlwZSI6WyJWZXJpZmlhYmxlQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOnsiaWQiOiJkaWQ6ZXRocjpzZXBvbGlhOjB4MDM2NGNlZmZjMzliZjNlMjdhNjBhMzJkOWIzZThiZmI2YWEzZWU5NTg1YTNjZDZhMDdkYWZlZWIzMjY1NWZiOTcxIiwibmFtZSI6IkxpdGhpdW0gTWluZXIgSW5jb3Jwb3JhdGVkIn0sImhvbGRlciI6eyJpZCI6ImRpZDpldGhyOnNlcG9saWE6MHgwMzcwMDFjMDAyZDMxYTUyZjA3ODFlNjJhZGRkODUwNTgzMDNlOGFmYzQ4NzE2YjdkOTI3OTE1OTkyODZiZjdjMzIiLCJuYW1lIjoiQW5vZGUgUHJvZHVjZXIgSW5jb3Jwb3JhdGVkIn0sImlzc3VhbmNlRGF0ZSI6IjIwMDAtMDEtMDFUMDA6MDA6MDBaIiwiY3JlZGVudGlhbFN1YmplY3QiOnsiaWQiOiJkaWQ6ZXRocjpzZXBvbGlhOjB4MDM3MDAxYzAwMmQzMWE1MmYwNzgxZTYyYWRkZDg1MDU4MzAzZThhZmM0ODcxNmI3ZDkyNzkxNTk5Mjg2YmY3YzMyIiwic3ViamVjdERldGFpbHMiOnsicHJvZHVjdCI6IkxpdGhpdW0iLCJiYXRjaE51bWJlciI6IkFCQ0RFIiwicXVhbnRpdHkiOiIzMDAwIGtnIn0sInByZXZpb3VzQ3JlZGVudGlhbCI6bnVsbCwiY29tcG9uZW50Q3JlZGVudGlhbHMiOltdLCJ0cmFuc2FjdGlvbklkIjoiMHgxMjM0NTY3ODlhYmNkZWYiLCJjZXJ0aWZpY2F0ZUNyZWRlbnRpYWwiOnsibmFtZSI6Im1pbmluZy1jZXJ0aWZpY2F0ZS12Yy5qc29uIiwiY2lkIjoiUW1aVzJERGdUd0RCdzMxZmNuQk1xeVNIa0JWeHZjanMzNHZ4V2QyeXFkZ3BvNiJ9fSwiaXNzIjoiZGlkOmV0aHI6c2Vwb2xpYToweDAzNzAwMWMwMDJkMzFhNTJmMDc4MWU2MmFkZGQ4NTA1ODMwM2U4YWZjNDg3MTZiN2Q5Mjc5MTU5OTI4NmJmN2MzMiJ9.2gAUpAI6pYAWAsijEnGS5pksq7kRI5VLp670D3Ro9gUGHuMy8bNrR-47ThGaVbrSNBsEcjPto_s99S5PE2yDKwA"
+    }
+  }
+}

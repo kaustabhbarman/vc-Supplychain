@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1"
+  ],
+  "id": "https://example.edu/credentials/1872",
+  "type": [
+    "VerifiableCredential"
+  ],
+  "issuer": {
+    "id": "did:ethr:sepolia:0x03ce5e3b1e590985456cd84a492118fd2fa4f49b2ff5e23f78cc1c733e21024774",
+    "name": "Battery Manufacturer Incorporated"
+  },
+  "holder": {
+    "id": "did:ethr:sepolia:0x039c3774097a44ee4bf7b7919361da055f86fae5b5de2b81f0aafd755326fea14b",
+    "name": "Battery Retailer Incorporated"
+  },
+  "issuanceDate": "2000-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:ethr:sepolia:0x039c3774097a44ee4bf7b7919361da055f86fae5b5de2b81f0aafd755326fea14b",
+    "subjectDetails": {
+      "product": "Battery",
+      "batchNumber": "ABCDE",
+      "quantity": "5000 Units"
+    },
+    "previousCredential": null,
+    "componentCredentials": [
+      {
+        "name": "anode-vc.json",
+        "cid": "QmPWUZkAN1AE92QaLUZjsM2Y6FHNPQHHp3nChHt6LCHbD3"
+      },
+      {
+        "name": "cathode-vc.json",
+        "cid": "QmZ3ZTz4QBjGLFShv68G2qo4tPKjXc7KkA7BoYfGfW7Ltc"
+      }
+    ],
+    "transactionId": "0x123456789abcdef",
+    "certificateCredential": null
+  },
+  "proofs": {
+    "issuerProof": {
+      "type": "EcdsaSecp256k1Signature2019",
+      "created": "2024-08-26T10:37:19.448Z",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "did:ethr:sepolia:0x03ce5e3b1e590985456cd84a492118fd2fa4f49b2ff5e23f78cc1c733e21024774",
+      "jws": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NkstUiJ9.eyJpYXQiOjE3MjQ2Njg2MzksIkBjb250ZXh0IjpbImh0dHBzOi8vd3d3LnczLm9yZy8yMDE4L2NyZWRlbnRpYWxzL3YxIl0sImlkIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8xODcyIiwidHlwZSI6WyJWZXJpZmlhYmxlQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOnsiaWQiOiJkaWQ6ZXRocjpzZXBvbGlhOjB4MDNjZTVlM2IxZTU5MDk4NTQ1NmNkODRhNDkyMTE4ZmQyZmE0ZjQ5YjJmZjVlMjNmNzhjYzFjNzMzZTIxMDI0Nzc0IiwibmFtZSI6IkJhdHRlcnkgTWFudWZhY3R1cmVyIEluY29ycG9yYXRlZCJ9LCJob2xkZXIiOnsiaWQiOiJkaWQ6ZXRocjpzZXBvbGlhOjB4MDM5YzM3NzQwOTdhNDRlZTRiZjdiNzkxOTM2MWRhMDU1Zjg2ZmFlNWI1ZGUyYjgxZjBhYWZkNzU1MzI2ZmVhMTRiIiwibmFtZSI6IkJhdHRlcnkgUmV0YWlsZXIgSW5jb3Jwb3JhdGVkIn0sImlzc3VhbmNlRGF0ZSI6IjIwMDAtMDEtMDFUMDA6MDA6MDBaIiwiY3JlZGVudGlhbFN1YmplY3QiOnsiaWQiOiJkaWQ6ZXRocjpzZXBvbGlhOjB4MDM5YzM3NzQwOTdhNDRlZTRiZjdiNzkxOTM2MWRhMDU1Zjg2ZmFlNWI1ZGUyYjgxZjBhYWZkNzU1MzI2ZmVhMTRiIiwic3ViamVjdERldGFpbHMiOnsicHJvZHVjdCI6IkJhdHRlcnkiLCJiYXRjaE51bWJlciI6IkFCQ0RFIiwicXVhbnRpdHkiOiI1MDAwIFVuaXRzIn0sInByZXZpb3VzQ3JlZGVudGlhbCI6bnVsbCwiY29tcG9uZW50Q3JlZGVudGlhbHMiOlt7Im5hbWUiOiJhbm9kZS12Yy5qc29uIiwiY2lkIjoiUW1QV1Vaa0FOMUFFOTJRYUxVWmpzTTJZNkZITlBRSEhwM25DaEh0NkxDSGJEMyJ9LHsibmFtZSI6ImNhdGhvZGUtdmMuanNvbiIsImNpZCI6IlFtWjNaVHo0UUJqR0xGU2h2NjhHMnFvNHRQS2pYYzdLa0E3Qm9ZZkdmVzdMdGMifV0sInRyYW5zYWN0aW9uSWQiOiIweDEyMzQ1Njc4OWFiY2RlZiIsImNlcnRpZmljYXRlQ3JlZGVudGlhbCI6bnVsbH0sImlzcyI6ImRpZDpldGhyOnNlcG9saWE6MHgwM2NlNWUzYjFlNTkwOTg1NDU2Y2Q4NGE0OTIxMThmZDJmYTRmNDliMmZmNWUyM2Y3OGNjMWM3MzNlMjEwMjQ3NzQifQ.xXcvbQ3W8G2zDlvdIN9NXpH3GXHNQ8-YeFppWp1PojVg_9zpRTrSdIqWGsR7qHN752e_FVguqU1upnBRP1tqegA"
+    },
+    "holderProof": {
+      "type": "EcdsaSecp256k1Signature2019",
+      "created": "2024-08-26T10:37:31.598Z",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "did:ethr:sepolia:0x039c3774097a44ee4bf7b7919361da055f86fae5b5de2b81f0aafd755326fea14b",
+      "jws": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NkstUiJ9.eyJpYXQiOjE3MjQ2Njg2NTEsIkBjb250ZXh0IjpbImh0dHBzOi8vd3d3LnczLm9yZy8yMDE4L2NyZWRlbnRpYWxzL3YxIl0sImlkIjoiaHR0cHM6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8xODcyIiwidHlwZSI6WyJWZXJpZmlhYmxlQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOnsiaWQiOiJkaWQ6ZXRocjpzZXBvbGlhOjB4MDNjZTVlM2IxZTU5MDk4NTQ1NmNkODRhNDkyMTE4ZmQyZmE0ZjQ5YjJmZjVlMjNmNzhjYzFjNzMzZTIxMDI0Nzc0IiwibmFtZSI6IkJhdHRlcnkgTWFudWZhY3R1cmVyIEluY29ycG9yYXRlZCJ9LCJob2xkZXIiOnsiaWQiOiJkaWQ6ZXRocjpzZXBvbGlhOjB4MDM5YzM3NzQwOTdhNDRlZTRiZjdiNzkxOTM2MWRhMDU1Zjg2ZmFlNWI1ZGUyYjgxZjBhYWZkNzU1MzI2ZmVhMTRiIiwibmFtZSI6IkJhdHRlcnkgUmV0YWlsZXIgSW5jb3Jwb3JhdGVkIn0sImlzc3VhbmNlRGF0ZSI6IjIwMDAtMDEtMDFUMDA6MDA6MDBaIiwiY3JlZGVudGlhbFN1YmplY3QiOnsiaWQiOiJkaWQ6ZXRocjpzZXBvbGlhOjB4MDM5YzM3NzQwOTdhNDRlZTRiZjdiNzkxOTM2MWRhMDU1Zjg2ZmFlNWI1ZGUyYjgxZjBhYWZkNzU1MzI2ZmVhMTRiIiwic3ViamVjdERldGFpbHMiOnsicHJvZHVjdCI6IkJhdHRlcnkiLCJiYXRjaE51bWJlciI6IkFCQ0RFIiwicXVhbnRpdHkiOiI1MDAwIFVuaXRzIn0sInByZXZpb3VzQ3JlZGVudGlhbCI6bnVsbCwiY29tcG9uZW50Q3JlZGVudGlhbHMiOlt7Im5hbWUiOiJhbm9kZS12Yy5qc29uIiwiY2lkIjoiUW1QV1Vaa0FOMUFFOTJRYUxVWmpzTTJZNkZITlBRSEhwM25DaEh0NkxDSGJEMyJ9LHsibmFtZSI6ImNhdGhvZGUtdmMuanNvbiIsImNpZCI6IlFtWjNaVHo0UUJqR0xGU2h2NjhHMnFvNHRQS2pYYzdLa0E3Qm9ZZkdmVzdMdGMifV0sInRyYW5zYWN0aW9uSWQiOiIweDEyMzQ1Njc4OWFiY2RlZiIsImNlcnRpZmljYXRlQ3JlZGVudGlhbCI6bnVsbH0sImlzcyI6ImRpZDpldGhyOnNlcG9saWE6MHgwMzljMzc3NDA5N2E0NGVlNGJmN2I3OTE5MzYxZGEwNTVmODZmYWU1YjVkZTJiODFmMGFhZmQ3NTUzMjZmZWExNGIifQ.-BFTPRtFIhW8LMc4Z25qQRuIUoY7ohPMZT6VDDXSYf5MF9xLvrLjcqjXyEvTGC2hN1dw1JZZ8lgwfG6xkBaoGAE"
+    }
+  }
+}

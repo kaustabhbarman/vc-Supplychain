@@ -12,13 +12,13 @@ app.use(cors());
 // Endpoint to verify VC
 app.post('/verify-vc', async (req, res) => {
   try {
-    const { vc } = req.body;
+    const { vc, isCertificate } = req.body;
     console.log("VC: ", vc)
     if (!vc) {
       return res.status(400).json({ error: 'VC data is required.' });
     }
     // Call the verifyVC function
-    const isVerified = await verifyVC(vc);
+    const isVerified = await verifyVC(vc, isCertificate);
 
     // Return the verification result
     if (isVerified) {
