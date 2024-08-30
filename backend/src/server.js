@@ -13,19 +13,22 @@ app.use(cors());
 app.post('/verify-vc', async (req, res) => {
   try {
     const { vc, isCertificate } = req.body;
-    console.log("VC: ", vc)
     if (!vc) {
       return res.status(400).json({ error: 'VC data is required.' });
     }
     // Call the verifyVC function
-    const isVerified = await verifyVC(vc, isCertificate);
+    // Call the verifyVC function
+    const verificationResult = await verifyVC(vc, isCertificate);
 
-    // Return the verification result
-    if (isVerified) {
-      res.json({ message: 'VC verification complete.', verified: true });
-    } else {
-      res.json({ message: 'VC verification failed.', verified: false });
-    }
+    // Prepare the response
+    const response = {
+      message: 'VC verification complete.',
+      issuer: verificationResult.issuer,
+      holder: verificationResult.holder,
+    };
+
+    //return the response
+    res.json(response);
   } catch (error) {
     console.error('Error verifying VC:', error);
     res.status(500).json({ error: 'Internal server error' });

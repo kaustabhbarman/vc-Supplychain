@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import ProductInfo from './ui/ProductInfo';
 import CertificateInfo from './ui/CertificateInfo';
+import VerificationInfo from './ui/VerificationInfo';
 import SearchContainer from './ui/SearchContainer';
 
 
@@ -11,7 +12,8 @@ function App() {
   const [vc, setVC] = useState(null);
   const [isCertificate, setIsCertificate] = useState(false);
   const [error, setError] = useState(null);
-  const [verificationResult, setVerificationResult] = useState(null);
+  const [issuerVerification, setIssuerVerification] = useState(null);
+  const [holderVerification, setHolderVerification] = useState(null);
   const [historyStack, setHistoryStack] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -23,16 +25,15 @@ function App() {
 
   const handleCidSubmit = async (cid) => {
     setLoading(true);
-    setVerificationResult(null)
     setError(null);
     setVC(null);
+    setHolderVerification(null)
+    setIssuerVerification(null)
     setIsCertificate(false);
     try {
       const response = await fetchVC(cid);
       if (response) {
-
-        // Update the history stack
-        setHistoryStack(prevStack => [...prevStack, vc]);
+        setVC(response);
 
         // Determine if the VC is a certificate or a license
         const isCertificate = response.type.includes("LicenseCredential") || response.type.includes("CertificateCredential");
@@ -40,8 +41,19 @@ function App() {
 
         // Call the backend API to verify the VC
         const result = await axios.post('http://localhost:3001/verify-vc', { vc: response, isCertificate });
-        setVC(response);
-        setVerificationResult(result.data.verified);
+
+        setIssuerVerification(result.data.issuer);
+        setHolderVerification(result.data.holder);
+
+        // Update the history stack with the complete state
+        setHistoryStack(prevStack => [
+          ...prevStack,
+          {
+            vc: response,
+            issuerVerification: result.data.issuer,
+            holderVerification: result.data.holder
+          }
+        ]);
       } else {
         setError("Unable to fetch data. Please check the CID and try again.");
       }
@@ -74,13 +86,14 @@ function App() {
   }
 
   const handleGoBack = () => {
-    if (historyStack.length > 0) {
+    if (historyStack.length > 1) {
       setError(null);
-      setVerificationResult(null);
-      const previousVC = historyStack[historyStack.length - 1];
+      const previousState = historyStack[historyStack.length - 2];
       setHistoryStack(prevStack => prevStack.slice(0, -1)); // Remove the last item from the stack
-      setVC(previousVC);
-      setIsCertificate(previousVC.type.includes("LicenseCredential") || previousVC.type.includes("CertificateCredential"));
+      setVC(previousState.vc);
+      setIssuerVerification(previousState.issuerVerification);
+      setHolderVerification(previousState.holderVerification);
+      setIsCertificate(previousState.vc.type.includes("LicenseCredential") || previousState.vc.type.includes("CertificateCredential"));
     }
   };
 
@@ -97,10 +110,12 @@ function App() {
           <div className="loading-spinner">Loading...</div>
         )}
 
-        {!loading && verificationResult !== null && (
-          <div className="verification-status">
-            Verification Status: {verificationResult ? 'Verified' : 'Not Verified'}
-          </div>
+        {!loading && issuerVerification && vc && (
+          <VerificationInfo signer={vc.issuer} verification={issuerVerification} />
+        )}
+
+        {!loading && holderVerification && vc && (
+          <VerificationInfo signer={vc.holder} verification={holderVerification} />
         )}
 
         {!loading && vc && (

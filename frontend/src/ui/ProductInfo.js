@@ -12,11 +12,11 @@ const ProductInfo = ({ vc, handleCidSubmit }) => {
             <td>{vc.credentialSubject.subjectDetails.product}</td>
           </tr>
           <tr>
-            <th>Seller</th>
+            <th>Issuer</th>
             <td>{vc.issuer.name}</td>
           </tr>
           <tr>
-            <th>Owner</th>
+            <th>Holder</th>
             <td>{vc.holder.name}</td>
           </tr>
           <tr>

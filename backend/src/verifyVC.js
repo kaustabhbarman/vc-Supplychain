@@ -14,62 +14,77 @@ function removeProofsSection(data) {
 
 // Function to verify the proof of JSON data
 async function verifyProof(proof, dataToVerify, role) {
+    // Initialize result object
+    const result = {
+        matching_vc: false,
+        matching_signer: false,
+        signature_verified: false
+    };
 
     // Setup the DID resolver
-    const didResolver = new Resolver(getResolver({ rpcUrl: rpcUrl, name: chainNameOrId , registry: registryAddress}));
-    const verificationDid = new EthrDID({ ...EthrDID.createKeyPair()});
+    const didResolver = new Resolver(getResolver({ rpcUrl: rpcUrl, name: chainNameOrId, registry: registryAddress }));
+    const verificationDid = new EthrDID({ ...EthrDID.createKeyPair() });
 
-    //verify jws and extract the signer, the vc and the verified status
-    const { verified, payload: { iat, iss, ...vc }, issuer: signer } = await verificationDid.verifyJWT(proof.jws, didResolver);
+    try {
+        // Verify JWS and extract the signer, the VC, and the verified status
+        const { verified, payload: { iat, iss, ...vc }, issuer: signer } = await verificationDid.verifyJWT(proof.jws, didResolver);
 
-    //check if vc encoded in the proof is the actual vc
-    const deepEqual = (obj1, obj2) => JSON.stringify(obj1) === JSON.stringify(obj2);
-    if(!deepEqual(vc, dataToVerify)){
-        console.error("jws encoded VC for "+role+" does not match actual VC.");
-        console.log("jws encoded VC:", vc);
-        console.log("actual VC:", dataToVerify);
-        return false;
+        // Check if VC encoded in the proof matches the actual VC
+        const deepEqual = (obj1, obj2) => JSON.stringify(obj1) === JSON.stringify(obj2);
+        result.matching_vc = deepEqual(vc, dataToVerify);
+
+        // Check if proof was signed by the same DID that is in the document
+        result.matching_signer = (signer === dataToVerify[role].id && signer === proof.verificationMethod);
+
+        // Check if JWS was verified
+        result.signature_verified = verified;
+
+        if (!result.matching_vc) {
+            console.error("JWS encoded VC for " + role + " does not match the actual VC.");
+        }
+        if (!result.matching_signer) {
+            console.error("DID mismatch for " + role + ".");
+        }
+        if (!result.signature_verified) {
+            console.error("JWS verification for " + role + " failed.");
+        }
+
+        // Print a success message if all checks pass
+        if (result.matching_vc && result.matching_signer && result.signature_verified) {
+            console.log("Proof for " + role + " is valid!");
+        }
+
+    } catch (error) {
+        console.error("An error occurred during verification for " + role + ": ", error.message);
     }
 
-    //check if proof was signed by the same did that is in the document
-    if(!(signer === dataToVerify[role].id && signer === proof.verificationMethod)){
-        console.error("DID missmatch for "+role+".");
-        console.log("jws DID", signer);
-        console.log("VC DID:", dataToVerify[role].id);
-        console.log("verificationMethod DID:", proof.verificationMethod);
-        return false;
-    }
-
-    //check if jws was verified
-    if(!verified){
-        console.error("jws verification for "+role+" failed.");
-        return false;
-    }
-
-    console.log("Proof for "+role+" is valid!");
-    return true;
+    return result;
 }
 
 // Main function to read, verify, and output the result
 async function verifyVC(vcjsonData, isCertificate) {
-
     // Extract the proof section and the data to verify
     const { proofs, dataToVerify } = removeProofsSection(vcjsonData);
 
     if (!proofs) {
         throw new Error('No proofs section found in the JSON file.');
     }
+
     // Verify issuerProof
-    const issuerProofStatus = await verifyProof(proofs.issuerProof, dataToVerify, "issuer");
-    
-    //if the VC is a certificate, there is no holderproof
-    if(isCertificate){
-        return issuerProofStatus;
+    const issuerProofResult = await verifyProof(proofs.issuerProof, dataToVerify, "issuer");
+
+    // If the VC is a certificate, there is no holderProof
+    if (isCertificate) {
+        return { issuer: issuerProofResult, holder: null };
     }
 
     // Verify holderProof
-    const holderProofStatus = await verifyProof(proofs.holderProof, dataToVerify, "holder");
-    return (issuerProofStatus && holderProofStatus);
+    const holderProofResult = await verifyProof(proofs.holderProof, dataToVerify, "holder");
+
+    return {
+        issuer: issuerProofResult,
+        holder: holderProofResult
+    };
 }
 
 
