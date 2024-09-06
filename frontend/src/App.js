@@ -17,8 +17,6 @@ function App() {
   const [historyStack, setHistoryStack] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const ipfs_base_link = "https://ipfs.filebase.io/ipfs/"
-
   const handleCidChange = (event) => {
     setCid(event.target.value);
   };
@@ -30,60 +28,38 @@ function App() {
     setHolderVerification(null)
     setIssuerVerification(null)
     setIsCertificate(false);
+
     try {
-      const response = await fetchVC(cid);
-      if (response) {
-        setVC(response);
+      //fetch vc from ipfs
+      const response = await axios.post('http://localhost:3001/fetch-vc', { cid });
+      setVC(response.data.vc);
+      // Determine if the VC is a certificate or a license
+      const isCertificate = response.data.vc.type.includes("LicenseCredential") || response.data.vc.type.includes("CertificateCredential");
+      setIsCertificate(isCertificate);
 
-        // Determine if the VC is a certificate or a license
-        const isCertificate = response.type.includes("LicenseCredential") || response.type.includes("CertificateCredential");
-        setIsCertificate(isCertificate);
+      // Call the backend API to verify the VC
+      const result = await axios.post('http://localhost:3001/verify-vc', { vc: response.data.vc, isCertificate });
 
-        // Call the backend API to verify the VC
-        const result = await axios.post('http://localhost:3001/verify-vc', { vc: response, isCertificate });
+      setIssuerVerification(result.data.issuer);
+      setHolderVerification(result.data.holder);
 
-        setIssuerVerification(result.data.issuer);
-        setHolderVerification(result.data.holder);
-
-        // Update the history stack with the complete state
-        setHistoryStack(prevStack => [
-          ...prevStack,
-          {
-            vc: response,
-            issuerVerification: result.data.issuer,
-            holderVerification: result.data.holder
-          }
-        ]);
-      } else {
-        setError("Unable to fetch data. Please check the CID and try again.");
-      }
+      // Update the history stack with the complete state
+      setHistoryStack(prevStack => [
+        ...prevStack,
+        {
+          vc: response.data.vc,
+          issuerVerification: result.data.issuer,
+          holderVerification: result.data.holder
+        }
+      ]);
     } catch (err) {
-      setError("Verification could not be performed.");
+      setError("Something went wrong while fetching and verifying the VC. Please check the CID and try again.");
       console.error(err);
     }
     finally {
       setLoading(false);
     }
   };
-
-  async function fetchVC(cid) {
-    try {
-        // Use fetch to get the response from the URL
-        const response = await fetch(ipfs_base_link + cid);
-
-        // Check if the response status is OK (status code 200)
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        // Parse the response as JSON
-        const vcJsonData = await response.json();
-        //check if vc is a certificate
-        return vcJsonData
-    } catch (error) {
-        // Handle any errors that occur during the fetch
-        console.error('Error fetching JSON data:', error);
-    }
-  }
 
   const handleGoBack = () => {
     if (historyStack.length > 1) {
@@ -136,7 +112,7 @@ function App() {
 
       </header>
     </div>
-  );  
+  );
 }
 
 export default App;
