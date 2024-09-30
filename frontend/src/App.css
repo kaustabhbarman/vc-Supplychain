@@ -36,7 +36,7 @@
 
 /* Go Back button styles */
 .go-back-button {
-  background-color: #f44336; /* Different color for Go Back button */
+  background-color: #f44336;
 }
 
 .go-back-button:hover {
@@ -56,9 +56,9 @@
 .verification-status {
   padding: 10px 20px;
   font-size: 16px;
-  color: #f0f0f0; /* Light text color for better contrast on dark background */
-  background-color: #2e3338; /* Dark background color */
+  color: #f0f0f0;
+  background-color: #2e3338;
   border-radius: 5px;
   margin-top: 0px;
-  text-align: center; /* Center-align text */
+  text-align: center;
 }

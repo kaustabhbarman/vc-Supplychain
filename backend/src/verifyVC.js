@@ -39,6 +39,7 @@ async function verifyProof(proof, dataToVerify, role) {
         // Check if JWS was verified
         result.signature_verified = verified;
 
+        // log errors in console
         if (!result.matching_vc) {
             console.error("JWS encoded VC for " + role + " does not match the actual VC.");
         }

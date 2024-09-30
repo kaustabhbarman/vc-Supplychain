@@ -1,6 +1,7 @@
 import React from 'react';
 import './VerificationInfo.css';
 
+// component for displaying verification information
 const VerificationInfo = ({ signer, verification }) => {
   // Function to render icons based on boolean values
   const renderBooleanIcon = (value) => (value ? '✔️' : '❌');

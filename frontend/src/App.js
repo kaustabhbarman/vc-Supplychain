@@ -65,7 +65,7 @@ function App() {
     if (historyStack.length > 1) {
       setError(null);
       const previousState = historyStack[historyStack.length - 2];
-      setHistoryStack(prevStack => prevStack.slice(0, -1)); // Remove the last item from the stack
+      setHistoryStack(prevStack => prevStack.slice(0, -1)); 
       setVC(previousState.vc);
       setIssuerVerification(previousState.issuerVerification);
       setHolderVerification(previousState.holderVerification);

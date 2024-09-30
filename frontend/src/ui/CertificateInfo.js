@@ -1,6 +1,7 @@
 import React from 'react';
 import './CertificateInfo.css';
 
+// component for displaying certificate information
 const CertificateInfo = ({ vc }) => {
   return (
     <div className="certificate-info">

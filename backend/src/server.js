@@ -18,7 +18,6 @@ app.post('/verify-vc', async (req, res) => {
       return res.status(400).json({ error: 'VC data is required.' });
     }
     // Call the verifyVC function
-    // Call the verifyVC function
     const verificationResult = await verifyVC(vc, isCertificate);
 
     // Prepare the response

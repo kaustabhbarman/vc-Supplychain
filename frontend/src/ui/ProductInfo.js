@@ -1,6 +1,7 @@
 import React from 'react';
 import './ProductInfo.css';
 
+// component for displaying product information
 const ProductInfo = ({ vc, handleCidSubmit }) => {
   return (
     <div className="product-info">
@@ -33,7 +34,7 @@ const ProductInfo = ({ vc, handleCidSubmit }) => {
           </tr>
         </tbody>
       </table>
-
+      
       {(vc.credentialSubject.previousCredential || vc.credentialSubject.componentCredentials.length > 0 || vc.credentialSubject.certificateCredential) && (
         <div className="related-credentials">
           <h2>Related Credentials</h2>

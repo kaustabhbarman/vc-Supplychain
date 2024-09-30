@@ -1,6 +1,7 @@
 import React from 'react';
 import './SearchContainer.css'
 
+// component for search field and button
 const SearchContainer = ({ cid, onCidChange, onCidSubmit }) => {
   return (
     <div className="search-container">
