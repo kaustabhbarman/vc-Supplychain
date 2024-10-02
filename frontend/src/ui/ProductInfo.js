@@ -32,6 +32,10 @@ const ProductInfo = ({ vc, handleCidSubmit }) => {
             <th>Issuance Date</th>
             <td>{vc.issuanceDate}</td>
           </tr>
+          <tr>
+            <th>Transaction ID</th>
+            <td>{vc.credentialSubject.transactionId}</td>
+          </tr>
         </tbody>
       </table>
       
